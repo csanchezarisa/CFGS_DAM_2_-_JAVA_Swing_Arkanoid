@@ -4,6 +4,7 @@ import com.arkanoid.Game;
 import com.arkanoid.Main;
 
 import java.awt.*;
+import java.awt.geom.Ellipse2D;
 
 public class Ball {
 
@@ -46,14 +47,14 @@ public class Ball {
     }
 
     private boolean collision() {
-        return game.getRacquet().getBounds().intersects(getBounds());
+        return getBounds().intersects(game.getRacquet().getBounds());
     }
 
     public void paint(Graphics2D g) {
         g.fillOval(x, y, DIAMETER, DIAMETER);
     }
 
-    public Rectangle getBounds() {
-        return new Rectangle(x, y, DIAMETER, DIAMETER);
+    public Shape getBounds() {
+        return new Ellipse2D.Double(x, y, DIAMETER, DIAMETER);
     }
 }
