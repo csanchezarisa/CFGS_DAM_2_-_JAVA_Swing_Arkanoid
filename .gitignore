@@ -1,2 +1,5 @@
 /.idea/
 /Arkanoid.iml
+/bin/
+.project
+.classpath
