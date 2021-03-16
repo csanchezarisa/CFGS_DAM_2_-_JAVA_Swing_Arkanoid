@@ -29,13 +29,14 @@ public class Ball {
             xa = -game.speed;
         else if (y + ya < 0)
             ya = game.speed;
-        else if (y + ya > game.getHeight() - DIAMETER)
+        else if (y + ya > game.getHeight() - DIAMETER) {
             ya = -game.speed;
-            //game.gameOver();
+            game.gameOver();
+        }
         else if (collision()) {
             ya = -game.speed;
             y = game.getRacquet().getTopY() - DIAMETER;
-            //game.speed++;
+            game.speed++;
         }
         else
             changeDirection = false;

@@ -44,6 +44,15 @@ public class Game extends JPanel {
         setFocusable(true);
     }
 
+    public void gameOver() {
+        JOptionPane.showMessageDialog(
+                this,
+                "Your score is " + getScore(),
+                "Game Over",
+                JOptionPane.YES_NO_OPTION);
+        System.exit(ABORT);
+    }
+
     /** Realiza los cálculos para ver en qué posiciones
      * hay que pintar los objetos por pantalla */
     public void move() {
@@ -63,6 +72,10 @@ public class Game extends JPanel {
         ball.paint(g2d);
         racquet.paint(g2d);
         g2d.setColor(Color.BLACK);
+    }
+
+    public int getScore() {
+        return speed;
     }
 
     public Ball getBall() {
