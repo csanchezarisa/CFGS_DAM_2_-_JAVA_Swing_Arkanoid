@@ -9,8 +9,8 @@ import java.awt.event.KeyEvent;
 public class Racquet {
 
     private static int Y = 330;
-    private static final int WIDTH = 60;
-    private static final int HEIGHT = 10;
+    private static int width = 60;
+    private static int height = 10;
 
     Color color = Color.BLACK;
     int x;
@@ -19,18 +19,20 @@ public class Racquet {
 
     public Racquet(Game game) {
         this.game = game;
+        width = Main.MAIN_FRAME.getWidth() / 15;
+        height = Main.MAIN_FRAME.getHeight() / 50;
         Y = Main.MAIN_FRAME.getHeight() - 100;
-        x = (Main.MAIN_FRAME.getWidth() / 2) - (WIDTH / 2);
+        x = (Main.MAIN_FRAME.getWidth() / 2) - (width / 2);
     }
 
     public void move() {
-        if (x + xa > 0 && x + xa < game.getWidth() - WIDTH)
+        if (x + xa > 0 && x + xa < game.getWidth() - width)
             x += xa;
     }
 
     public void paint(Graphics2D g) {
         g.setColor(color);
-        g.fillRect(x, Y, WIDTH, HEIGHT);
+        g.fillRect(x, Y, width, height);
     }
 
     public void keyReleased(KeyEvent e) {
@@ -45,10 +47,10 @@ public class Racquet {
     }
 
     public Rectangle getBounds() {
-        return new Rectangle(x, Y, WIDTH, HEIGHT);
+        return new Rectangle(x, Y, width, height);
     }
 
     public int getTopY() {
-        return Y - HEIGHT;
+        return Y - height;
     }
 }
