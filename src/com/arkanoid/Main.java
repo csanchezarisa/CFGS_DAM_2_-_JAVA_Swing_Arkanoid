@@ -57,7 +57,7 @@ public class Main {
             Main.paintScore();
             game.move();
             game.repaint();
-            Thread.sleep(10);
+            Thread.sleep(5);
         }
 
     }
