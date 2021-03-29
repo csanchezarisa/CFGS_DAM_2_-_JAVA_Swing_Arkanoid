@@ -16,32 +16,12 @@ public class Game extends JPanel {
     private Brick[][] bricks;
     public int speed = 1;
 
-    /** Constructor de la clase Game. Añade un listener para capturar
-     * cuando se clica alguna tecla del teclado. Prepara el panel y crea
+    /** Constructor de la clase Game. Prepara el panel y crea
      * los elementos necesarios para poder jugar */
     public Game() {
-
-        // Se añade el listener al panel para poder capturar el teclado
-        addKeyListener(new KeyListener() {
-            @Override
-            public void keyTyped(KeyEvent e) {
-
-            }
-
-            @Override
-            public void keyPressed(KeyEvent e) {
-                racquet.keyPressed(e);
-            }
-
-            @Override
-            public void keyReleased(KeyEvent e) {
-                racquet.keyReleased(e);
-            }
-        });
-
         ball = new Ball(this);
         racquet = new Racquet(this);
-        setFocusable(true);
+        setBackground(Color.lightGray);
     }
 
     public void gameOver() {
