@@ -36,7 +36,7 @@ public abstract class Brick {
         boolean outOfBounds = false;
 
         if (resistance <= 0) {
-            y--;
+            y++;
 
             if (y > Main.MAIN_FRAME.getHeight())
                 outOfBounds = true;
@@ -46,8 +46,43 @@ public abstract class Brick {
         return outOfBounds;
     }
 
+    /** Pinta el ladrillo en la posición en la que se encuentra */
     public void paint(Graphics2D g) {
         g.setColor(color);
         g.fillRect(x, y, width, height);
+    }
+
+    /** Devuelve un boolean si la bola ha
+     * colisionado con el propio ladrillo.
+     * Si el ladrillo está cayendo devuelve
+     * false
+     * @return True si la bola colisiona
+     * con el ladrillo, false si no lo hace*/
+    public boolean collision(Shape ball) {
+
+        boolean collision = false;
+
+        if (resistance > 0) {
+            collision = ball.intersects(getBounds());
+
+            if (collision)
+                this.touched();
+        }
+
+
+        return collision;
+    }
+
+    /** Devuelve un rectangula con la posición y el
+     * tamaño del ladrillo */
+    public Rectangle getBounds() {
+        return new Rectangle(x, y, width, height);
+    }
+
+    /** Cuando hay una colisión con el ladrillo se ejecuta
+     * el método para bajarle la resisténcia, cambiarle el tono
+     * del color al ladrillo y hacer que caiga */
+    public void touched() {
+        resistance--;
     }
 }

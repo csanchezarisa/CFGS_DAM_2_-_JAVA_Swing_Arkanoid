@@ -3,9 +3,11 @@ package com.arkanoid.entities;
 import com.arkanoid.Game;
 import com.arkanoid.Main;
 import com.arkanoid.config.Configurations;
+import com.arkanoid.entities.brick.Brick;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
+import java.util.Arrays;
 
 public class Ball {
 
@@ -37,10 +39,13 @@ public class Ball {
             ya = -game.speed;
             //game.gameOver();
         }
-        else if (collision()) {
+        else if (racquetCollision()) {
             ya = -game.speed;
             y = game.getRacquet().getTopY() - diameter;
             game.speed++;
+        }
+        else if (brickCollision()) {
+            ya = -ya;
         }
         else
             changeDirection = false;
@@ -49,8 +54,26 @@ public class Ball {
         y = y + ya;
     }
 
-    private boolean collision() {
+    /** Revisa si hay colisión con la raqueta
+     * @return true si hay colisión, false si no la hay */
+    private boolean racquetCollision() {
         return getBounds().intersects(game.getRacquet().getBounds());
+    }
+
+    /** Revisa si hay colisión con alguno de los ladrillos
+     * @return true si hay alguna colisión con algún ladrillo,
+     * false si no hay ninguna colisión*/
+    private boolean brickCollision() {
+        Shape ballBounds = getBounds();
+        Brick[][] bricks = game.getBricks();
+
+        int touchedBricks = 0;
+
+        for (Brick[] brickRow : bricks) {
+            touchedBricks += Arrays.stream(brickRow).parallel().filter(brick -> brick != null && brick.collision(ballBounds)).count();
+        }
+
+        return touchedBricks > 0 ? true : false;
     }
 
     public void paint(Graphics2D g) {
