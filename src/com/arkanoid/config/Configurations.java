@@ -16,4 +16,7 @@ public class Configurations {
     // Brick sizes
     public static final int BRICK_RELATIVE_WIDTH_SIZE = 20;
     public static final int BRICK_RELATIVE_HEIGHT_SIZE = 30;
+
+    // Game
+    public static final int GAME_INITIAL_SCORE = 1;
 }

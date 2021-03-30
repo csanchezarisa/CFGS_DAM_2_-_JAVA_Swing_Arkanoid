@@ -1,5 +1,6 @@
 package com.arkanoid;
 
+import com.arkanoid.config.Configurations;
 import com.arkanoid.entities.Ball;
 import com.arkanoid.entities.Racquet;
 import com.arkanoid.entities.brick.Brick;
@@ -14,7 +15,7 @@ public class Game extends JPanel {
     private Ball ball;
     private Racquet racquet;
     private Brick[][] bricks;
-    public int speed = 1;
+    public int speed = Configurations.GAME_INITIAL_SCORE;
 
     /** Constructor de la clase Game. Prepara el panel y crea
      * los elementos necesarios para poder jugar */
