@@ -86,6 +86,28 @@ public class Game extends JPanel {
     public void move() {
         ball.move();
         racquet.move();
+        moveBricks();
+    }
+
+    /** Ejecuta el método move de todos y cada uno de los
+     * ladrillos que hay en la lista del juego.
+     * Si el ladrillo ha caído y ha salido de la pantalla,
+     * se eliminará */
+    private void moveBricks() {
+        // Se recorren todas las posiciones de la lista
+        for (int row = 0; row < bricks.length; row++) {
+            for (int col = 0; col < bricks[row].length; col++) {
+
+                // ¿Hay un ladrillo en esta posición?
+                if (bricks[row][col] != null) {
+
+                    // Se mueve el ladrillo. ¿Está fuera del mapa?
+                    if (bricks[row][col].move()) {
+                        bricks[row][col] = null;
+                    }
+                }
+            }
+        }
     }
 
     @Override
@@ -99,7 +121,18 @@ public class Game extends JPanel {
         );
         ball.paint(g2d);
         racquet.paint(g2d);
+        paintBricks(g2d);
         g2d.setColor(Color.BLACK);
+    }
+
+    /** Pinta los ladrillos que hay en el listado del juego */
+    private void paintBricks(Graphics2D g2d) {
+        for (Brick[] brickRow : bricks) {
+            for (Brick brick : brickRow) {
+                if (brick != null)
+                    brick.paint(g2d);
+            }
+        }
     }
 
     public int getScore() {
