@@ -3,7 +3,10 @@ package com.arkanoid;
 import com.arkanoid.config.Configurations;
 import com.arkanoid.entities.Ball;
 import com.arkanoid.entities.Racquet;
+import com.arkanoid.entities.brick.BlueBrick;
 import com.arkanoid.entities.brick.Brick;
+import com.arkanoid.entities.brick.GreenBrick;
+import com.arkanoid.entities.brick.RedBrick;
 
 import javax.swing.*;
 import java.awt.*;
@@ -22,7 +25,51 @@ public class Game extends JPanel {
     public Game() {
         ball = new Ball(this);
         racquet = new Racquet(this);
+        bricks = initializeBricks();
         setBackground(Color.lightGray);
+    }
+
+    /** Crea el array con los ladrillos */
+    private Brick[][] initializeBricks() {
+
+        // Se calcula el tamaño de cada ladrillo según las configuraciones especificadas
+        int brickWidth = Main.MAIN_FRAME.getWidth() / Configurations.BRICK_RELATIVE_WIDTH_SIZE;
+        int brickHeight = Main.MAIN_FRAME.getHeight() / Configurations.BRICK_RELATIVE_HEIGHT_SIZE;
+
+        // Se calcula el número de columnas y filas que habrá de ladrillos
+        int colNumber = Main.MAIN_FRAME.getWidth() / brickWidth;
+        int rowNumber = 2;
+
+        // Se crea el array de ladrillos con las medidas calculadas
+        Brick[][] bricks = new Brick[rowNumber][colNumber];
+
+        // Se rellena el array con ladrillos aleatorios
+        for (int row = 0; row < bricks.length; row++) {
+            for (int col = 0; col < bricks[row].length; col++) {
+
+                // Se busca un número random entre 1 y 3
+                int randomColorBrick = (int) (Math.random() * 3 + 1);
+
+                // Se define la variable ladrillo para añadir a la lista
+                Brick brick;
+
+                // Según el número aleatorio se crea el ladrillo de un color o de otro
+                // 1 -> Azúl
+                // 2 -> Rojo
+                // 3 -> Verde
+                switch (randomColorBrick) {
+                    case 1 -> brick = new BlueBrick((row * brickHeight), (col * brickWidth), this);
+                    case 2 -> brick = new RedBrick((row * brickHeight), (col * brickWidth), this);
+                    case 3 -> brick = new GreenBrick((row * brickHeight), (col * brickWidth), this);
+                    default -> throw new IllegalStateException("Unexpected value: " + randomColorBrick);
+                }
+
+                // Se assigna el ladrillo en la posición de la lista
+                bricks[row][col] = brick;
+            }
+        }
+
+        return bricks;
     }
 
     public void gameOver() {
