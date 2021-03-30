@@ -2,6 +2,7 @@ package com.arkanoid.entities;
 
 import com.arkanoid.Game;
 import com.arkanoid.Main;
+import com.arkanoid.config.Configurations;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
@@ -19,7 +20,7 @@ public class Ball {
     public Ball(Game game) {
         this.game = game;
         x = (int) (Math.random() * (Main.MAIN_FRAME.getWidth()));
-        diameter = Main.MAIN_FRAME.getWidth() / 50;
+        diameter = Main.MAIN_FRAME.getWidth() / Configurations.BALL_RELATIVE_SIZE;
         y = diameter;
     }
 

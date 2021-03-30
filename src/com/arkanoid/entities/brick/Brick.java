@@ -2,6 +2,7 @@ package com.arkanoid.entities.brick;
 
 import com.arkanoid.Main;
 import com.arkanoid.assets.abilities.AbilitiesEnum;
+import com.arkanoid.config.Configurations;
 
 import java.awt.*;
 
@@ -17,7 +18,7 @@ public abstract class Brick {
     public Brick(int y, int x) {
         this.y = y;
         this.x = x;
-        width = Main.MAIN_FRAME.getWidth() / 20;
-        height = Main.MAIN_FRAME.getHeight() / 30;
+        width = Main.MAIN_FRAME.getWidth() / Configurations.BRICK_RELATIVE_WIDTH_SIZE;
+        height = Main.MAIN_FRAME.getHeight() / Configurations.BRICK_RELATIVE_HEIGHT_SIZE;
     }
 }

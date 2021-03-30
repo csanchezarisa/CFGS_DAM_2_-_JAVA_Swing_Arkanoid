@@ -2,6 +2,7 @@ package com.arkanoid.entities;
 
 import com.arkanoid.Game;
 import com.arkanoid.Main;
+import com.arkanoid.config.Configurations;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
@@ -19,9 +20,9 @@ public class Racquet {
 
     public Racquet(Game game) {
         this.game = game;
-        width = Main.MAIN_FRAME.getWidth() / 15;
-        height = Main.MAIN_FRAME.getHeight() / 50;
-        Y = Main.MAIN_FRAME.getHeight() - 100;
+        width = Main.MAIN_FRAME.getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE;
+        height = Main.MAIN_FRAME.getHeight() / Configurations.RACQUET_RELATIVE_HEIGHT_SIZE;
+        Y = Main.MAIN_FRAME.getHeight() + Configurations.RACQUET_Y_SPAWN_POSITION;
         x = (Main.MAIN_FRAME.getWidth() / 2) - (width / 2);
     }
 
