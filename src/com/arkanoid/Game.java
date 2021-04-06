@@ -160,4 +160,8 @@ public class Game extends JPanel {
     public Brick[][] getBricks() {
         return bricks;
     }
+
+    public int getLives() {
+        return lives;
+    }
 }

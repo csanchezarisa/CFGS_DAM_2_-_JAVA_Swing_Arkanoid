@@ -199,7 +199,7 @@ public class Main {
     }
 
     private static void paintScore() {
-        SCORE_LABEL.setText("Score: " + game.getScore());
+        SCORE_LABEL.setText("Score: " + game.getScore() + "        Lives: " + "<3 ".repeat(game.getLives()));
     }
 
 }
