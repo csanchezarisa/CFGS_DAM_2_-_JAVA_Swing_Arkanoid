@@ -41,7 +41,6 @@ public class Main {
             @Override
             public void keyTyped(KeyEvent e) {
                 switch (e.getKeyCode()) {
-                    case KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT -> game.getRacquet().keyPressed(e);
                     case KeyEvent.VK_SPACE -> keySpacePressed();
                 }
             }
