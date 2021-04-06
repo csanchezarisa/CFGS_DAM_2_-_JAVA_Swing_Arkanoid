@@ -19,18 +19,19 @@ public class Configurations {
 
     // Game
     public static final int GAME_INITIAL_SCORE = 1;
-     
+    public static final int GAME_INITIAL_LIVES = 3;
+
     // Brick colors / Green 3 / Red 2 / Blue 1
     public static final String RED_BRICK_BASE = "#D40000";
     public static final String BLUE_BRICK_BASE = "#00BBDA";
     public static final String GREEN_BRICK_BASE = "#63DB02";
-    
-	    	//Bricks hit
-		    public static final String RED_BRICK_1HIT = "#A90000";
-		    public static final String RED_BRICK_2HIT = "#810000";
-		    
-		    public static final String GREEN_BRICK_1HIT = "#23DB02";
-		    public static final String GREEN_BRICK_2HIT = "#049E0F";
-		    public static final String GREEN_BRICK_3HIT = "#006207";
+
+    //Bricks hit
+    public static final String RED_BRICK_1HIT = "#A90000";
+    public static final String RED_BRICK_2HIT = "#810000";
+
+    public static final String GREEN_BRICK_1HIT = "#23DB02";
+    public static final String GREEN_BRICK_2HIT = "#049E0F";
+    public static final String GREEN_BRICK_3HIT = "#006207";
 
 }

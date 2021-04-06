@@ -1,17 +1,19 @@
 package com.arkanoid;
 
+import com.arkanoid.assets.gamestate.GameStateEnum;
+
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.util.concurrent.Flow;
 
 public class Main {
 
     public static JFrame MAIN_FRAME;
     public static JLabel SCORE_LABEL;
     public static Game game;
+    public static GameStateEnum gameState = GameStateEnum.RUNNING;
+    public static boolean exitGame = false;
 
     /** Método principal que inicia el juego */
     public static void main(String[] args) throws InterruptedException {
@@ -43,23 +45,33 @@ public class Main {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                game.getRacquet().keyPressed(e);
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT -> game.getRacquet().keyPressed(e);
+                }
             }
 
             @Override
             public void keyReleased(KeyEvent e) {
-                game.getRacquet().keyReleased(e);
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT -> game.getRacquet().keyPressed(e);
+                }
             }
         });
 
         // Bucle principal del juego
-        while (true) {
-            Main.paintScore();
-            game.move();
-            game.repaint();
-            Thread.sleep(5);
+        while (!exitGame) {
+            switch (gameState) {
+                case RUNNING -> gameRunning();
+            }
         }
 
+    }
+
+    private static void gameRunning() throws InterruptedException {
+        Main.paintScore();
+        game.move();
+        game.repaint();
+        Thread.sleep(5);
     }
 
     private static void paintScore() {

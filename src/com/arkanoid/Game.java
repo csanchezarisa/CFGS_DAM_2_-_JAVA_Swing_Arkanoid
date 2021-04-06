@@ -10,14 +10,13 @@ import com.arkanoid.entities.brick.RedBrick;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 
 public class Game extends JPanel {
 
     private Ball ball;
     private Racquet racquet;
     private Brick[][] bricks;
+    private int lives;
     public int speed = Configurations.GAME_INITIAL_SCORE;
 
     /** Constructor de la clase Game. Prepara el panel y crea
@@ -27,6 +26,7 @@ public class Game extends JPanel {
         racquet = new Racquet(this);
         bricks = initializeBricks();
         setBackground(Color.lightGray);
+        lives = Configurations.GAME_INITIAL_LIVES;
     }
 
     /** Crea el array con los ladrillos */
@@ -72,13 +72,24 @@ public class Game extends JPanel {
         return bricks;
     }
 
+    public void onBallOut() {
+        lives--;
+
+        if (lives <= 0) {
+            gameOver();
+        }
+        else {
+            resetPositions();
+        }
+    }
+
+    public void resetPositions() {
+        ball = new Ball(this);
+        racquet = new Racquet(this);
+    }
+
     public void gameOver() {
-        JOptionPane.showMessageDialog(
-                this,
-                "Your score is " + getScore(),
-                "Game Over",
-                JOptionPane.YES_NO_OPTION);
-        System.exit(ABORT);
+
     }
 
     /** Realiza los cálculos para ver en qué posiciones
