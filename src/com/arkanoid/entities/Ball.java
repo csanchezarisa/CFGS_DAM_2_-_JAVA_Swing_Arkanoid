@@ -25,6 +25,7 @@ public class Ball {
         diameter = Main.MAIN_FRAME.getWidth() / Configurations.BALL_RELATIVE_SIZE;
         y = diameter;
     }
+    
 
     public void move() {
         boolean changeDirection = true;
