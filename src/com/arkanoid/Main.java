@@ -68,7 +68,7 @@ public class Main {
                 case RUNNING -> gameRunning();
             }
         }
-
+    System.exit(0);
     }
 
     private static void gameStart() {
@@ -87,7 +87,7 @@ public class Main {
 
         switch (result) {
             case JOptionPane.YES_OPTION -> gameState = GameStateEnum.RUNNING;
-            case JOptionPane.NO_OPTION -> gameState = GameStateEnum.FINAL;
+            case JOptionPane.NO_OPTION -> exitGame = true;
         }
     }
 
