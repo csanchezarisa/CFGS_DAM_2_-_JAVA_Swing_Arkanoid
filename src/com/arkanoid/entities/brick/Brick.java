@@ -40,6 +40,8 @@ public abstract class Brick {
 
             if (y > Main.MAIN_FRAME.getHeight())
                 outOfBounds = true;
+            else if (collision(game.getRacquet().getBounds()))
+                game.getRacquet().setAbility(this.ability);
 
         }
 
@@ -70,6 +72,13 @@ public abstract class Brick {
         }
 
         return collision;
+    }
+
+    /** Devuelve un boolean si el ladrillo
+     * mientras está cayendo toca la pala.
+     * @return boolean */
+    public boolean collision(Rectangle racquet) {
+        return racquet.intersects(getBounds());
     }
 
     /** Devuelve un rectangula con la posición y el

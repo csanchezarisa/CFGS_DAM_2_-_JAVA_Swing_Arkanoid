@@ -2,6 +2,7 @@ package com.arkanoid.entities;
 
 import com.arkanoid.Game;
 import com.arkanoid.Main;
+import com.arkanoid.assets.abilities.AbilitiesEnum;
 import com.arkanoid.config.Configurations;
 
 import java.awt.*;
@@ -13,7 +14,8 @@ public class Racquet {
     private static int width = 60;
     private static int height = 10;
 
-    Color color = Color.BLACK;
+    Color color;
+    private AbilitiesEnum ability;
     int x;
     int xa = 0;
     private Game game;
@@ -24,6 +26,8 @@ public class Racquet {
         height = Main.MAIN_FRAME.getHeight() / Configurations.RACQUET_RELATIVE_HEIGHT_SIZE;
         Y = Main.MAIN_FRAME.getHeight() + Configurations.RACQUET_Y_SPAWN_POSITION;
         x = (Main.MAIN_FRAME.getWidth() / 2) - (width / 2);
+        ability = AbilitiesEnum.NORMAL;
+        color = Color.decode(Configurations.RACQUET_BASE_COLOR);
     }
 
     public void move() {
@@ -53,5 +57,35 @@ public class Racquet {
 
     public int getTopY() {
         return Y - height;
+    }
+
+    /** Permite setear una ability para la pala
+     * @param ability ability que hay que aplicar
+     * a la pala */
+    public void setAbility(AbilitiesEnum ability) {
+        this.ability = ability;
+
+        switch (this.ability) {
+            case SPEED -> speedAbility();
+            case KILL -> killAbility();
+            default -> normalAbility();
+        }
+    }
+
+    /** Ability kill que finaliza el juego */
+    private void killAbility() {
+        color = Color.decode(Configurations.RACQUET_KILL_COLOR);
+        game.setLives(0);
+        Main.ballOut(game.getLives());
+    }
+
+    /** Ability speed que aumenta la velocidad de la pala */
+    private void speedAbility() {
+        color = Color.decode(Configurations.RACQUET_SPEED_COLOR);
+    }
+
+    /** Ability normal que deja la pala en estado normal */
+    private void normalAbility() {
+        color = Color.decode(Configurations.RACQUET_BASE_COLOR);
     }
 }

@@ -36,7 +36,7 @@ public class Ball {
             ya = game.speed;
         else if (y + ya > game.getHeight() - diameter) {
             ya = -game.speed;
-            game.onBallOut();
+            //game.onBallOut();
         }
         else if (racquetCollision()) {
             ya = -game.speed;

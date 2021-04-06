@@ -44,4 +44,9 @@ public class Configurations {
     public static final String GREEN_BRICK_3HIT = "#006207";
 
     public static final String BLUE_BRICK_1HIT = "#008001";
+
+    // Racquet colors
+    public static final String RACQUET_BASE_COLOR = "#000000";
+    public static final String RACQUET_KILL_COLOR = "#D40000";
+    public static final String RACQUET_SPEED_COLOR = "#00BBDA";
 }
