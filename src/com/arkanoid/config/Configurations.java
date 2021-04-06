@@ -12,10 +12,12 @@ public class Configurations {
     public static final String GAME_MESSAGE_PAUSED = "Game paused, do you want to continue?\nYour score is ";
     public static final String GAME_MESSAGE_BALL_OUT = "The ball has touched the bottom border.";
 
-    // Racquet sizes
+    // Racquet
     public static final int RACQUET_RELATIVE_WIDTH_SIZE = 15;
     public static final int RACQUET_RELATIVE_HEIGHT_SIZE = 50;
     public static final int RACQUET_Y_SPAWN_POSITION = -100;
+    public static final int RACQUET_BASE_SPEED = 1;
+    public static final int RACQUET_SPEED_ABILITY = 2;
 
     // Ball sizes
     public static final int BALL_RELATIVE_SIZE = 50;

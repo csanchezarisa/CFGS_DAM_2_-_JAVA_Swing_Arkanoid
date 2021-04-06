@@ -19,6 +19,7 @@ public class Racquet {
     int x;
     int xa = 0;
     private Game game;
+    private int speed;
 
     public Racquet(Game game) {
         this.game = game;
@@ -28,6 +29,7 @@ public class Racquet {
         x = (Main.MAIN_FRAME.getWidth() / 2) - (width / 2);
         ability = AbilitiesEnum.NORMAL;
         color = Color.decode(Configurations.RACQUET_BASE_COLOR);
+        speed = Configurations.RACQUET_BASE_SPEED;
     }
 
     public void move() {
@@ -46,9 +48,9 @@ public class Racquet {
 
     public void keyPressed(KeyEvent e) {
         if (e.getKeyCode() == KeyEvent.VK_LEFT)
-            xa = -game.speed - 1;
+            xa = -game.speed - speed;
         if (e.getKeyCode() == KeyEvent.VK_RIGHT)
-            xa = game.speed + 1;
+            xa = game.speed + speed;
     }
 
     public Rectangle getBounds() {
@@ -82,10 +84,12 @@ public class Racquet {
     /** Ability speed que aumenta la velocidad de la pala */
     private void speedAbility() {
         color = Color.decode(Configurations.RACQUET_SPEED_COLOR);
+        speed = Configurations.RACQUET_SPEED_ABILITY;
     }
 
     /** Ability normal que deja la pala en estado normal */
     private void normalAbility() {
         color = Color.decode(Configurations.RACQUET_BASE_COLOR);
+        speed = Configurations.RACQUET_BASE_SPEED;
     }
 }

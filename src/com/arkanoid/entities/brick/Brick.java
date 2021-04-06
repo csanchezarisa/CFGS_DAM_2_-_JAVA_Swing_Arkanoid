@@ -4,6 +4,8 @@ import com.arkanoid.Game;
 import com.arkanoid.Main;
 import com.arkanoid.assets.abilities.AbilitiesEnum;
 import com.arkanoid.config.Configurations;
+import com.arkanoid.entities.Racquet;
+import org.w3c.dom.css.Rect;
 
 import java.awt.*;
 
@@ -38,10 +40,14 @@ public abstract class Brick {
         if (resistance <= 0) {
             y++;
 
+            Racquet racquet = game.getRacquet();
+
             if (y > Main.MAIN_FRAME.getHeight())
                 outOfBounds = true;
-            else if (collision(game.getRacquet().getBounds()))
-                game.getRacquet().setAbility(this.ability);
+            else if (collision(racquet.getBounds())) {
+                racquet.setAbility(this.ability);
+                outOfBounds = true;
+            }
 
         }
 
