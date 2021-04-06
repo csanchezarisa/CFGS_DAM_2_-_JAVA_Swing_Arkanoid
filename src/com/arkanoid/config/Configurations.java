@@ -5,6 +5,12 @@ package com.arkanoid.config;
  * de tamaños están especificadas en esta clase */
 public class Configurations {
 
+    // Messeges
+    public static final String GAME_MESSAGE_FINAL_BASE = "\nDo yoy want to retry?\nYour score is ";
+    public static final String GAME_MESSAGE_WIN = "YOU WIN!";
+    public static final String GAME_MESSAGE_LOSE = "YOU LOSE!";
+    public static final String GAME_MESSAGE_PAUSED = "Game paused, do you want to continue?\nYour score is ";
+
     // Racquet sizes
     public static final int RACQUET_RELATIVE_WIDTH_SIZE = 15;
     public static final int RACQUET_RELATIVE_HEIGHT_SIZE = 50;
@@ -28,13 +34,13 @@ public class Configurations {
     public static final String BLUE_BRICK_BASE = "#00BBDA";
     public static final String GREEN_BRICK_BASE = "#63DB02";
     
-	    	//Bricks hit
-		    public static final String RED_BRICK_1HIT = "#A90000";
-		    public static final String RED_BRICK_2HIT = "#810000";
-		    
-		    public static final String GREEN_BRICK_1HIT = "#23DB02";
-		    public static final String GREEN_BRICK_2HIT = "#049E0F";
-		    public static final String GREEN_BRICK_3HIT = "#006207";
+    //Bricks hit
+    public static final String RED_BRICK_1HIT = "#A90000";
+    public static final String RED_BRICK_2HIT = "#810000";
+
+    public static final String GREEN_BRICK_1HIT = "#23DB02";
+    public static final String GREEN_BRICK_2HIT = "#049E0F";
+    public static final String GREEN_BRICK_3HIT = "#006207";
 
 		    public static final String BLUE_BRICK_1HIT = "#008001";
 		    

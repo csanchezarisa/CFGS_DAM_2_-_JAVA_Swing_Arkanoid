@@ -4,5 +4,6 @@ public enum GameStateEnum {
     START,
     RUNNING,
     PAUSED,
-    FINAL
+    FINAL_WIN,
+    FINAL_LOSE
 }

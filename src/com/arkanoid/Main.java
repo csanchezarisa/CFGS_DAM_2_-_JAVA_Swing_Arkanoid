@@ -1,10 +1,10 @@
 package com.arkanoid;
 
 import com.arkanoid.assets.gamestate.GameStateEnum;
+import com.arkanoid.config.Configurations;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ComponentAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
@@ -70,6 +70,8 @@ public class Main {
                 case START -> gameStart();
                 case RUNNING -> gameRunning();
                 case PAUSED -> gamePaused();
+                case FINAL_WIN -> gameFinal(true);
+                case FINAL_LOSE -> gameFinal(false);
             }
         }
         System.exit(0);
@@ -109,12 +111,15 @@ public class Main {
         Thread.sleep(5);
     }
 
-    private static void gamePaused() {
+    /** Cuando el juego se encuentra en estado pausado
+     * se muestra un alert con la opción de seguir jugando o salir
+     * del juego*/
+    private static void gamePaused() throws InterruptedException {
         Main.paintScore();
         game.repaint();
         int result = JOptionPane.showOptionDialog(
                 MAIN_FRAME,
-                "Game paused, do you want to continue?\nYour score is " + game.getScore(),
+                Configurations.GAME_MESSAGE_PAUSED + game.getScore(),
                 "PAUSED",
                 JOptionPane.YES_NO_OPTION,
                 JOptionPane.QUESTION_MESSAGE,
@@ -129,6 +134,40 @@ public class Main {
         }
     }
 
+    private static void gameFinal(boolean victory) throws InterruptedException {
+        String message;
+
+        if (victory)
+            message = Configurations.GAME_MESSAGE_WIN;
+        else
+            message = Configurations.GAME_MESSAGE_LOSE;
+
+        Main.paintScore();
+        game.repaint();
+
+        int result = JOptionPane.showOptionDialog(
+                MAIN_FRAME,
+                message + Configurations.GAME_MESSAGE_FINAL_BASE + game.getScore(),
+                "FINAL",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                null,
+                null
+        );
+
+        switch (result) {
+            case JOptionPane.YES_OPTION -> restartGame();
+            case JOptionPane.NO_OPTION -> exitGame = true;
+        }
+    }
+
+    private static void restartGame() throws InterruptedException {
+        gameState = GameStateEnum.START;
+        Main.main(null);
+    }
+
+    /** Si el juego está en estado RUNNING lo pasa a pausado */
     private static void keyEscapePressed() {
         switch (gameState) {
             case RUNNING -> gameState = GameStateEnum.PAUSED;
