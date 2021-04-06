@@ -38,7 +38,7 @@ public class Game extends JPanel {
 
         // Se calcula el número de columnas y filas que habrá de ladrillos
         int colNumber = Main.MAIN_FRAME.getWidth() / brickWidth;
-        int rowNumber = 2;
+        int rowNumber = Configurations.BRICKS_ROWS;
 
         // Se crea el array de ladrillos con las medidas calculadas
         Brick[][] bricks = new Brick[rowNumber][colNumber];

@@ -12,7 +12,7 @@ public class Main {
     public static JFrame MAIN_FRAME;
     public static JLabel SCORE_LABEL;
     public static Game game;
-    public static GameStateEnum gameState = GameStateEnum.RUNNING;
+    public static GameStateEnum gameState = GameStateEnum.START;
     public static boolean exitGame = false;
 
     /** Método principal que inicia el juego */
@@ -40,13 +40,17 @@ public class Main {
         MAIN_FRAME.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-
+                switch (e.getKeyCode()) {
+                    case KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT -> game.getRacquet().keyPressed(e);
+                    case KeyEvent.VK_SPACE -> keySpacePressed();
+                }
             }
 
             @Override
             public void keyPressed(KeyEvent e) {
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_LEFT, KeyEvent.VK_RIGHT -> game.getRacquet().keyPressed(e);
+                    case KeyEvent.VK_SPACE -> keySpacePressed();
                 }
             }
 
@@ -61,10 +65,31 @@ public class Main {
         // Bucle principal del juego
         while (!exitGame) {
             switch (gameState) {
+                case START -> gameStart();
                 case RUNNING -> gameRunning();
             }
         }
 
+    }
+
+    private static void gameStart() {
+        Main.paintScore();
+        game.repaint();
+        int result = JOptionPane.showOptionDialog(
+                MAIN_FRAME,
+                "Welcome to ARKANOID, do you want to play?",
+                "ARKANOID",
+                JOptionPane.YES_NO_OPTION,
+                JOptionPane.QUESTION_MESSAGE,
+                null,
+                null,
+                null
+        );
+
+        switch (result) {
+            case JOptionPane.YES_OPTION -> gameState = GameStateEnum.RUNNING;
+            case JOptionPane.NO_OPTION -> gameState = GameStateEnum.FINAL;
+        }
     }
 
     private static void gameRunning() throws InterruptedException {
@@ -72,6 +97,12 @@ public class Main {
         game.move();
         game.repaint();
         Thread.sleep(5);
+    }
+
+    private static void keySpacePressed() {
+        switch (gameState) {
+            case START -> gameState = GameStateEnum.RUNNING;
+        }
     }
 
     private static void paintScore() {
