@@ -72,6 +72,7 @@ public class Main {
                 case PAUSED -> gamePaused();
                 case FINAL_WIN -> gameFinal(true);
                 case FINAL_LOSE -> gameFinal(false);
+                case BALL_RESET -> gameBallOut();
             }
         }
         System.exit(0);
@@ -114,7 +115,7 @@ public class Main {
     /** Cuando el juego se encuentra en estado pausado
      * se muestra un alert con la opción de seguir jugando o salir
      * del juego*/
-    private static void gamePaused() throws InterruptedException {
+    private static void gamePaused() {
         Main.paintScore();
         game.repaint();
         int result = JOptionPane.showOptionDialog(
@@ -134,6 +135,18 @@ public class Main {
         }
     }
 
+    /** Cuando la bola ha tocado el borde se muestra
+     * un mensaje para dar tiempo al usuario para prepararse */
+    private static void gameBallOut() {
+        Main.paintScore();
+        game.repaint();
+        JOptionPane.showMessageDialog(MAIN_FRAME, Configurations.GAME_MESSAGE_BALL_OUT);
+        gameState = GameStateEnum.RUNNING;
+    }
+
+    /** Finaliza el juego, muestra un mensaje distinto según si se ha ganado
+     * o se ha perdido.
+     * Junto con la opción para reiniciar el juego o finalizar la aplicación */
     private static void gameFinal(boolean victory) throws InterruptedException {
         String message;
 
@@ -162,9 +175,20 @@ public class Main {
         }
     }
 
+    /** Permite reiniciar el juego, creando todos
+     * los elementos de nuevo */
     private static void restartGame() throws InterruptedException {
         gameState = GameStateEnum.START;
         Main.main(null);
+    }
+
+    /** Cuando la bola ha tocado el borde inferior
+     * se cambia el estado del juego según la lógica */
+    public static void ballOut(int lives) {
+        if (lives > 0)
+            gameState = GameStateEnum.BALL_RESET;
+        else
+            gameState = GameStateEnum.FINAL_LOSE;
     }
 
     /** Si el juego está en estado RUNNING lo pasa a pausado */

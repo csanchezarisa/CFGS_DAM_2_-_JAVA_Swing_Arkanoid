@@ -75,12 +75,11 @@ public class Game extends JPanel {
     public void onBallOut() {
         lives--;
 
-        if (lives <= 0) {
-            gameOver();
-        }
-        else {
+        if (lives > 0) {
             resetPositions();
         }
+
+        Main.ballOut(lives);
     }
 
     public void resetPositions() {

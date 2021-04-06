@@ -10,6 +10,7 @@ public class Configurations {
     public static final String GAME_MESSAGE_WIN = "YOU WIN!";
     public static final String GAME_MESSAGE_LOSE = "YOU LOSE!";
     public static final String GAME_MESSAGE_PAUSED = "Game paused, do you want to continue?\nYour score is ";
+    public static final String GAME_MESSAGE_BALL_OUT = "The ball has touched the bottom border.";
 
     // Racquet sizes
     public static final int RACQUET_RELATIVE_WIDTH_SIZE = 15;
@@ -42,8 +43,5 @@ public class Configurations {
     public static final String GREEN_BRICK_2HIT = "#049E0F";
     public static final String GREEN_BRICK_3HIT = "#006207";
 
-		    public static final String BLUE_BRICK_1HIT = "#008001";
-		    
-		    
-
+    public static final String BLUE_BRICK_1HIT = "#008001";
 }
