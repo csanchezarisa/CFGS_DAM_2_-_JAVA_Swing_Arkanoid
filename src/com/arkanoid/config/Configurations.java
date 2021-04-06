@@ -35,6 +35,8 @@ public class Configurations {
 		    public static final String GREEN_BRICK_1HIT = "#23DB02";
 		    public static final String GREEN_BRICK_2HIT = "#049E0F";
 		    public static final String GREEN_BRICK_3HIT = "#006207";
+
+		    public static final String BLUE_BRICK_1HIT = "#008001";
 		    
 		    
 
