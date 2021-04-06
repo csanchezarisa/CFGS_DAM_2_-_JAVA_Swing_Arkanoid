@@ -72,6 +72,9 @@ public class Game extends JPanel {
         return bricks;
     }
 
+    /** Método que se ejecuta cuando la bola toca el borde
+     * inferior.
+     * Resta una vida y reseta las posiciones de los elementos*/
     public void onBallOut() {
         lives--;
 
@@ -82,13 +85,10 @@ public class Game extends JPanel {
         Main.ballOut(lives);
     }
 
+    /** Reseta las posiciones de la bola y la pala */
     public void resetPositions() {
         ball = new Ball(this);
         racquet = new Racquet(this);
-    }
-
-    public void gameOver() {
-
     }
 
     /** Realiza los cálculos para ver en qué posiciones

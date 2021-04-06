@@ -26,10 +26,8 @@ public class Ball {
         y = Main.MAIN_FRAME.getHeight() / Configurations.BRICK_RELATIVE_HEIGHT_SIZE * (Configurations.BRICKS_ROWS + 1);
     }
     
-
+    /** Hace los cálculos y setea las nuevas posiciones */
     public void move() {
-        boolean changeDirection = true;
-
         if (x + xa < 0)
             xa = game.speed;
         else if (x + xa > game.getWidth() - diameter)
@@ -48,8 +46,6 @@ public class Ball {
         else if (brickCollision()) {
             ya = -ya;
         }
-        else
-            changeDirection = false;
 
         x = x + xa;
         y = y + ya;
@@ -77,10 +73,14 @@ public class Ball {
         return touchedBricks > 0 ? true : false;
     }
 
+    /** Pinta la bola en las posiciones caluladas */
     public void paint(Graphics2D g) {
         g.fillOval(x, y, diameter, diameter);
     }
 
+    /** Devuelve el shape con la posición y la medida de la bola
+     * para ejecutar los collision
+     * @return  Shape con la posicion  y tamaño de la bola*/
     public Shape getBounds() {
         return new Ellipse2D.Double(x, y, diameter, diameter);
     }

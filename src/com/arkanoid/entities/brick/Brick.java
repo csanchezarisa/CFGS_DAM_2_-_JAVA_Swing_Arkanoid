@@ -69,12 +69,12 @@ public abstract class Brick {
                 this.touched();
         }
 
-
         return collision;
     }
 
     /** Devuelve un rectangula con la posición y el
-     * tamaño del ladrillo */
+     * tamaño del ladrillo.
+     * @return Rectangle con la posición y las medidas del ladrillo*/
     public Rectangle getBounds() {
         return new Rectangle(x, y, width, height);
     }

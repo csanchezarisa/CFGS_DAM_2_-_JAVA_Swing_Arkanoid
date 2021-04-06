@@ -66,6 +66,8 @@ public class Main {
 
         // Bucle principal del juego
         while (!exitGame) {
+
+            // Según el estado en el que está el juego hace una cosa u otra
             switch (gameState) {
                 case START -> gameStart();
                 case RUNNING -> gameRunning();
