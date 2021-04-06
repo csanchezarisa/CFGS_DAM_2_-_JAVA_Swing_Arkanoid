@@ -17,16 +17,18 @@ public class Game extends JPanel {
     private Racquet racquet;
     private Brick[][] bricks;
     private int lives;
-    public int speed = Configurations.GAME_INITIAL_SCORE;
+    private int score = Configurations.GAME_INITIAL_SCORE;
+    public int speed;
 
     /** Constructor de la clase Game. Prepara el panel y crea
      * los elementos necesarios para poder jugar */
     public Game() {
+        setBackground(Color.lightGray);
+        lives = Configurations.GAME_INITIAL_LIVES;
+        speed = 1 + (int) (score / 5);
         ball = new Ball(this);
         racquet = new Racquet(this);
         bricks = initializeBricks();
-        setBackground(Color.lightGray);
-        lives = Configurations.GAME_INITIAL_LIVES;
     }
 
     /** Crea el array con los ladrillos */
@@ -145,8 +147,13 @@ public class Game extends JPanel {
         }
     }
 
+    public void updateScore() {
+        score++;
+        speed = speed + (int) (score / 5);
+    }
+
     public int getScore() {
-        return speed;
+        return score;
     }
 
     public Ball getBall() {

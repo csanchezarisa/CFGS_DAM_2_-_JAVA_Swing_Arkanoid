@@ -33,7 +33,7 @@ public class Main {
         SCORE_LABEL = new JLabel("Score: 0");
         MAIN_FRAME.add(SCORE_LABEL, "North");
         SCORE_LABEL.setBackground(Color.BLACK);
-        SCORE_LABEL.setFont(new Font("Verdana", Font.BOLD, 18));
+        SCORE_LABEL.setFont(new Font("Segoe UI Symbol", Font.BOLD, 18));
 
         // Se inicializa la clase juego
         game = new Game();
@@ -76,6 +76,8 @@ public class Main {
                 case FINAL_LOSE -> gameFinal(false);
                 case BALL_RESET -> gameBallOut();
             }
+
+            Thread.sleep(5);
         }
         System.exit(0);
     }
@@ -107,11 +109,10 @@ public class Main {
     /** Estado principa del juego. Mientras el juego está en estado RUNNING
      * se calculan las nuevas posiciones de los elementos y se pintan
      * por pantalla */
-    private static void gameRunning() throws InterruptedException {
+    private static void gameRunning() {
         Main.paintScore();
         game.move();
         game.repaint();
-        Thread.sleep(5);
     }
 
     /** Cuando el juego se encuentra en estado pausado
@@ -201,7 +202,7 @@ public class Main {
     }
 
     private static void paintScore() {
-        SCORE_LABEL.setText("Score: " + game.getScore() + "        Lives: " + "<3 ".repeat(game.getLives()));
+        SCORE_LABEL.setText("Score: " + game.getScore() + "        Lives: " + "♥ ".repeat(game.getLives()));
     }
 
 }

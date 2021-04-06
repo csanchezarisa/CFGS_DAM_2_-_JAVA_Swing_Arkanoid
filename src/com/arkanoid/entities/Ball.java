@@ -15,8 +15,8 @@ public class Ball {
 
     int x;
     int y;
-    int xa = 1;
-    int ya = 1;
+    int xa;
+    int ya;
     private Game game;
 
     public Ball(Game game) {
@@ -24,6 +24,8 @@ public class Ball {
         x = (int) (Math.random() * (Main.MAIN_FRAME.getWidth()));
         diameter = Main.MAIN_FRAME.getWidth() / Configurations.BALL_RELATIVE_SIZE;
         y = Main.MAIN_FRAME.getHeight() / Configurations.BRICK_RELATIVE_HEIGHT_SIZE * (Configurations.BRICKS_ROWS + 1);
+        xa = game.speed;
+        ya = game.speed;
     }
     
     /** Hace los cálculos y setea las nuevas posiciones */
@@ -36,12 +38,12 @@ public class Ball {
             ya = game.speed;
         else if (y + ya > game.getHeight() - diameter) {
             ya = -game.speed;
-            //game.onBallOut();
+            game.onBallOut();
         }
         else if (racquetCollision()) {
             ya = -game.speed;
             y = game.getRacquet().getTopY() - diameter;
-            game.speed++;
+            game.updateScore();
         }
         else if (brickCollision()) {
             ya = -ya;

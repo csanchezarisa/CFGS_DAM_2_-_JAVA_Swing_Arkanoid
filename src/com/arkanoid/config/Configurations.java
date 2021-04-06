@@ -16,7 +16,7 @@ public class Configurations {
     public static final int RACQUET_RELATIVE_WIDTH_SIZE = 15;
     public static final int RACQUET_RELATIVE_HEIGHT_SIZE = 50;
     public static final int RACQUET_Y_SPAWN_POSITION = -100;
-    public static final int RACQUET_BASE_SPEED = 1;
+    public static final int RACQUET_BASE_SPEED = 2;
     public static final int RACQUET_SPEED_ABILITY = 2;
 
     // Ball sizes
@@ -28,7 +28,7 @@ public class Configurations {
     public static final int BRICKS_ROWS = 4;
 
     // Game
-    public static final int GAME_INITIAL_SCORE = 1;
+    public static final int GAME_INITIAL_SCORE = 0;
     public static final int GAME_INITIAL_LIVES = 3;
 
      
