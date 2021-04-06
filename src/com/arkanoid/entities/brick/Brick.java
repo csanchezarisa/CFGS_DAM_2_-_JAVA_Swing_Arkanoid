@@ -49,7 +49,7 @@ public abstract class Brick {
     /** Pinta el ladrillo en la posición en la que se encuentra */
     public void paint(Graphics2D g) {
         g.setColor(color);
-        g.fillRect(x, y, width, height);
+        g.fillRect(x, y, width -4, height-4);
     }
 
     /** Devuelve un boolean si la bola ha
