@@ -8,7 +8,7 @@ import com.arkanoid.config.Configurations;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-public class Racquet {
+public class Racquet extends Thread {
 
     private static int Y = 330;
     private static int width = 60;
@@ -20,6 +20,7 @@ public class Racquet {
     int xa = 0;
     private Game game;
     private int speed;
+    private Thread contador;
 
     public Racquet(Game game) {
         this.game = game;
@@ -30,6 +31,7 @@ public class Racquet {
         ability = AbilitiesEnum.NORMAL;
         color = Color.decode(Configurations.RACQUET_BASE_COLOR);
         speed = Configurations.RACQUET_BASE_SPEED;
+        contador = (Thread) this;
     }
 
     public void move() {
@@ -85,7 +87,13 @@ public class Racquet {
     private void speedAbility() {
         color = Color.decode(Configurations.RACQUET_SPEED_COLOR);
         speed = speed + Configurations.RACQUET_SPEED_ABILITY;
-        width = width * 2;
+        width = Main.MAIN_FRAME.getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE * 2;
+
+        // ¿Ya está el contador activo?
+        if (contador.isAlive()) {
+            contador = (Thread) this;
+        }
+        contador.start();
     }
 
     /** Ability normal que deja la pala en estado normal */
@@ -93,5 +101,15 @@ public class Racquet {
         color = Color.decode(Configurations.RACQUET_BASE_COLOR);
         speed = Configurations.RACQUET_BASE_SPEED + game.speed;
         width = Main.MAIN_FRAME.getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE;
+    }
+
+    @Override
+    public void run() {
+        try {
+            Thread.sleep(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        this.setAbility(AbilitiesEnum.NORMAL);
     }
 }
