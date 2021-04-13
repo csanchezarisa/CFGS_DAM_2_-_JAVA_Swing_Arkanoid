@@ -4,11 +4,12 @@ import com.arkanoid.Game;
 import com.arkanoid.Main;
 import com.arkanoid.assets.abilities.AbilitiesEnum;
 import com.arkanoid.config.Configurations;
+import com.arkanoid.util.Timer;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
-public class Racquet extends Thread {
+public class Racquet {
 
     private static int Y = 330;
     private static int width = 60;
@@ -20,9 +21,7 @@ public class Racquet extends Thread {
     int xa = 0;
     private Game game;
     private int speed;
-
-    private Thread contador;
-    private int contadorSecs;
+    private Timer timer;
 
     public Racquet(Game game) {
         this.game = game;
@@ -33,8 +32,7 @@ public class Racquet extends Thread {
         ability = AbilitiesEnum.NORMAL;
         color = Color.decode(Configurations.RACQUET_BASE_COLOR);
         speed = Configurations.RACQUET_BASE_SPEED;
-        contadorSecs = Configurations.GAME_BLUE_ABILITY_TIMER;
-        contador = (Thread) this;
+        timer = new Timer(this);
     }
 
     public void move() {
@@ -92,13 +90,12 @@ public class Racquet extends Thread {
         speed = speed + Configurations.RACQUET_SPEED_ABILITY;
         width = Main.MAIN_FRAME.getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE * 2;
 
-        // ¿Ya está el contador activo?
-        if (contador.isAlive()) {
-            contadorSecs = Configurations.GAME_BLUE_ABILITY_TIMER;
+        if (timer.isAlive()) {
+            timer.countSecs = Configurations.GAME_BLUE_ABILITY_TIMER;
         }
         else {
-            contadorSecs = Configurations.GAME_BLUE_ABILITY_TIMER;
-            contador.start();
+            timer = new Timer(this);
+            timer.start();
         }
     }
 
@@ -107,19 +104,5 @@ public class Racquet extends Thread {
         color = Color.decode(Configurations.RACQUET_BASE_COLOR);
         speed = Configurations.RACQUET_BASE_SPEED + game.speed;
         width = Main.MAIN_FRAME.getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE;
-    }
-
-    /* Permite dejar el contador en paralelo para la habiliad azúl */
-    @Override
-    public void run() {
-        while (contadorSecs > 0) {
-            contadorSecs--;
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
-        this.setAbility(AbilitiesEnum.NORMAL);
     }
 }
