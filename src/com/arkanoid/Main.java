@@ -14,6 +14,8 @@ public class Main {
     public static JLabel SCORE_LABEL;
     public static Game game;
 
+    public static int gameSleep = 8;
+
     /** Estado en el que se encuentra el juego actualmente */
     public static GameStateEnum gameState = GameStateEnum.START;
     public static boolean exitGame = false;
@@ -77,7 +79,7 @@ public class Main {
                 case BALL_RESET -> gameBallOut();
             }
 
-            Thread.sleep(5);
+            Thread.sleep(gameSleep);
         }
         System.exit(0);
     }

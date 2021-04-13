@@ -149,7 +149,12 @@ public class Game extends JPanel {
 
     public void updateScore() {
         score++;
-        speed = speed + (int) (score / 5);
+        if (score < 20) {
+            if (score % 5 == 0)
+                Main.gameSleep--;
+        }
+        else
+            speed += (int) (score / 5);
     }
 
     public int getScore() {

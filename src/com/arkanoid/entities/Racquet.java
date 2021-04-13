@@ -20,7 +20,9 @@ public class Racquet extends Thread {
     int xa = 0;
     private Game game;
     private int speed;
+
     private Thread contador;
+    private int contadorSecs;
 
     public Racquet(Game game) {
         this.game = game;
@@ -31,6 +33,7 @@ public class Racquet extends Thread {
         ability = AbilitiesEnum.NORMAL;
         color = Color.decode(Configurations.RACQUET_BASE_COLOR);
         speed = Configurations.RACQUET_BASE_SPEED;
+        contadorSecs = Configurations.GAME_BLUE_ABILITY_TIMER;
         contador = (Thread) this;
     }
 
@@ -91,9 +94,12 @@ public class Racquet extends Thread {
 
         // ¿Ya está el contador activo?
         if (contador.isAlive()) {
-            contador = (Thread) this;
+            contadorSecs = Configurations.GAME_BLUE_ABILITY_TIMER;
         }
-        contador.start();
+        else {
+            contadorSecs = Configurations.GAME_BLUE_ABILITY_TIMER;
+            contador.start();
+        }
     }
 
     /** Ability normal que deja la pala en estado normal */
@@ -103,12 +109,16 @@ public class Racquet extends Thread {
         width = Main.MAIN_FRAME.getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE;
     }
 
+    /* Permite dejar el contador en paralelo para la habiliad azúl */
     @Override
     public void run() {
-        try {
-            Thread.sleep(10000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
+        while (contadorSecs > 0) {
+            contadorSecs--;
+            try {
+                Thread.sleep(1000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
         }
         this.setAbility(AbilitiesEnum.NORMAL);
     }
