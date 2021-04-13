@@ -38,7 +38,7 @@ public abstract class Brick {
         boolean outOfBounds = false;
 
         if (resistance <= 0) {
-            y++;
+            y+=2;
 
             Racquet racquet = game.getRacquet();
 
