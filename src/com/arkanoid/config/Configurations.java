@@ -33,22 +33,22 @@ public class Configurations {
 
      
     // Brick colors / Green 3 / Red 2 / Blue 1
-    public static final String RED_BRICK_BASE = "#D40000";
-    public static final String BLUE_BRICK_BASE = "#00BBDA";
-    public static final String GREEN_BRICK_BASE = "#63DB02";
+    public static final String RED_BRICK_BASE = "#922B21";
+    public static final String BLUE_BRICK_BASE = "#081ABC";
+    public static final String GREEN_BRICK_BASE = "#006921";
     
     //Bricks hit
-    public static final String RED_BRICK_1HIT = "#A90000";
-    public static final String RED_BRICK_2HIT = "#810000";
+    public static final String RED_BRICK_1HIT = "#CF2817";
+    public static final String RED_BRICK_2HIT = "#FF6656";
 
-    public static final String GREEN_BRICK_1HIT = "#23DB02";
-    public static final String GREEN_BRICK_2HIT = "#049E0F";
-    public static final String GREEN_BRICK_3HIT = "#006207";
+    public static final String GREEN_BRICK_1HIT = "#039631";
+    public static final String GREEN_BRICK_2HIT = "#00E013";
+    public static final String GREEN_BRICK_3HIT = "#8AFF94";
 
-    public static final String BLUE_BRICK_1HIT = "#008CA4";
+    public static final String BLUE_BRICK_1HIT = "#3146FF";
 
     // Racquet colors
     public static final String RACQUET_BASE_COLOR = "#000000";
-    public static final String RACQUET_KILL_COLOR = "#D40000";
-    public static final String RACQUET_SPEED_COLOR = "#00BBDA";
+    public static final String RACQUET_KILL_COLOR = "#922B21";
+    public static final String RACQUET_SPEED_COLOR = "#3146FF";
 }
