@@ -1,5 +1,6 @@
 package com.arkanoid;
 
+import com.arkanoid.assets.gamestate.GameStateEnum;
 import com.arkanoid.config.Configurations;
 import com.arkanoid.entities.Ball;
 import com.arkanoid.entities.Racquet;
@@ -147,14 +148,25 @@ public class Game extends JPanel {
         }
     }
 
+    /** Aumenta en 1 la score. Si la score es divisible entre 5
+     * desminuirà en 1 milisegundo el tiempo del sleep en el render.
+     * Si el tiempo de sleep es 5, subirá en 1 la velocidad, hasta que
+     * la score llegue al máximo definido en el Configuration.
+     * Una vez ha llegado al máximo, cambia el estado del juego en el
+     * Main al estasdo FINAL_WIN */
     public void updateScore() {
         score++;
         if (score < 20) {
             if (score % 5 == 0)
                 Main.gameSleep--;
         }
-        else
-            speed += (int) (score / 5);
+        else if (score < Configurations.GAME_MAX_PUNTUATION){
+            if (score % 5 == 0)
+                score += 1;
+        }
+        else {
+            Main.gameState = GameStateEnum.FINAL_WIN;
+        }
     }
 
     public int getScore() {
