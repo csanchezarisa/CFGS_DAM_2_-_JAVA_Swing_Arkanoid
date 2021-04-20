@@ -32,6 +32,7 @@ public class Configurations {
     public static final int GAME_INITIAL_LIVES = 3;
     public static final int GAME_BLUE_ABILITY_TIMER = 10;
     public static final int GAME_MAX_PUNTUATION = 30;
+    public static final double GAME_SPEED_INCREMENT = 0.25;
 
      
     // Brick colors / Green 3 / Red 2 / Blue 1

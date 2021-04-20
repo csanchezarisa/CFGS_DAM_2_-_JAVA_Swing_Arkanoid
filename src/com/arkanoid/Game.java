@@ -1,5 +1,6 @@
 package com.arkanoid;
 
+import com.arkanoid.assets.gamestate.GameStateEnum;
 import com.arkanoid.config.Configurations;
 import com.arkanoid.entities.Ball;
 import com.arkanoid.entities.Racquet;
@@ -25,7 +26,7 @@ public class Game extends JPanel {
     public Game() {
         setBackground(Color.lightGray);
         lives = Configurations.GAME_INITIAL_LIVES;
-        speed = 1 + (0.25 * score);
+        speed = 1 + (Configurations.GAME_SPEED_INCREMENT * score);
         ball = new Ball(this);
         racquet = new Racquet(this);
         bricks = initializeBricks();
@@ -155,7 +156,10 @@ public class Game extends JPanel {
      * Main al estasdo FINAL_WIN */
     public void updateScore() {
         score++;
-        speed = 1 + (0.25 * score);
+        if (score == Configurations.GAME_MAX_PUNTUATION)
+            Main.gameState = GameStateEnum.FINAL_WIN;
+        else
+            speed = 1 + (Configurations.GAME_SPEED_INCREMENT * score);
     }
 
     public int getScore() {
