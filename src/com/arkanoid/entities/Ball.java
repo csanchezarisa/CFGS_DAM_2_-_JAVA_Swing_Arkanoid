@@ -41,6 +41,17 @@ public class Ball {
             //game.onBallOut();
         }
         else if (racquetCollision()) {
+
+            if (leftRacquetCollision()) {
+                xa = -game.speed;
+            }
+            else if (centerRacquetCollision()) {
+                xa = game.speed / 2;
+            }
+            else if (rightRacquetCollision()) {
+                xa = game.speed;
+            }
+
             ya = -game.speed;
             y = game.getRacquet().getTopY() - diameter;
             game.updateScore();
@@ -57,6 +68,18 @@ public class Ball {
      * @return true si hay colisión, false si no la hay */
     private boolean racquetCollision() {
         return getBounds().intersects(game.getRacquet().getBounds());
+    }
+
+    private boolean leftRacquetCollision() {
+        return getBounds().intersects(game.getRacquet().getLeftBounds());
+    }
+
+    private boolean rightRacquetCollision() {
+        return getBounds().intersects(game.getRacquet().getRightBounds());
+    }
+
+    private boolean centerRacquetCollision() {
+        return getBounds().intersects(game.getRacquet().getCenterBounds());
     }
 
     /** Revisa si hay colisión con alguno de los ladrillos

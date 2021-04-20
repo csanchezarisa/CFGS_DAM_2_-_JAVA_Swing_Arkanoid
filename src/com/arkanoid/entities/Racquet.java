@@ -60,6 +60,18 @@ public class Racquet {
         return new Rectangle(x, Y, width, height);
     }
 
+    public Rectangle getLeftBounds() {
+        return new Rectangle(x, Y, width / 3, height);
+    }
+
+    public Rectangle getCenterBounds() {
+        return new Rectangle(x + (width / 3), Y, width / 3, height);
+    }
+
+    public Rectangle getRightBounds() {
+        return new Rectangle(x + (width * 2 / 3), Y, width / 3, height);
+    }
+
     public int getTopY() {
         return Y - height;
     }
