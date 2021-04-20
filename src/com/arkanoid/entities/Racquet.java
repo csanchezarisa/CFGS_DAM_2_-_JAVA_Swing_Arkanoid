@@ -90,6 +90,12 @@ public class Racquet {
         speed = speed + Configurations.RACQUET_SPEED_ABILITY;
         width = Main.MAIN_FRAME.getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE * 2;
 
+        // La pala al crecer aparece fuera del mapa?
+        // Se coloca bien
+        if (x + width > Main.MAIN_FRAME.getWidth())
+            x = Main.MAIN_FRAME.getWidth() - width - 10;
+
+        // Hay algun cronómetro ya activo?
         if (timer.isAlive()) {
             timer.countSecs = Configurations.GAME_BLUE_ABILITY_TIMER;
         }
