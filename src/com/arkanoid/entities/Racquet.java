@@ -19,7 +19,7 @@ public class Racquet {
     private AbilitiesEnum ability;
     int x;
     int xa = 0;
-    private Game game;
+    private final Game game;
     private int speed;
     private Timer timer;
 

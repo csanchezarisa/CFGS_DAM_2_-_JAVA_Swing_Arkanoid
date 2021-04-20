@@ -16,7 +16,7 @@ public class Game extends JPanel {
 
     private Ball ball;
     private Racquet racquet;
-    private Brick[][] bricks;
+    private final Brick[][] bricks;
     private int lives;
     private int score = Configurations.GAME_INITIAL_SCORE;
     public int speed;
@@ -26,7 +26,7 @@ public class Game extends JPanel {
     public Game() {
         setBackground(Color.lightGray);
         lives = Configurations.GAME_INITIAL_LIVES;
-        speed = 1 + (int) (score / 5);
+        speed = 1 + (score / 5);
         ball = new Ball(this);
         racquet = new Racquet(this);
         bricks = initializeBricks();

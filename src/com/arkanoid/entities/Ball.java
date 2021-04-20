@@ -17,7 +17,7 @@ public class Ball {
     int y;
     int xa;
     int ya;
-    private Game game;
+    private final Game game;
 
     public Ball(Game game) {
         this.game = game;
@@ -72,7 +72,7 @@ public class Ball {
             touchedBricks += Arrays.stream(brickRow).parallel().filter(brick -> brick != null && brick.collision(ballBounds)).count();
         }
 
-        return touchedBricks > 0 ? true : false;
+        return touchedBricks > 0;
     }
 
     /** Pinta la bola en las posiciones caluladas */

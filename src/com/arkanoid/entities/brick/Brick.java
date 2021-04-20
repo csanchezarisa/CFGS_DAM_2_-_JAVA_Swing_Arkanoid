@@ -5,7 +5,6 @@ import com.arkanoid.Main;
 import com.arkanoid.assets.abilities.AbilitiesEnum;
 import com.arkanoid.config.Configurations;
 import com.arkanoid.entities.Racquet;
-import org.w3c.dom.css.Rect;
 
 import java.awt.*;
 

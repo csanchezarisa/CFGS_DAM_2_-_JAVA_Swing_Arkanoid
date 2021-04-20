@@ -7,7 +7,7 @@ import com.arkanoid.entities.Racquet;
 public class Timer extends Thread {
 
     public int countSecs;
-    private Racquet racquet;
+    private final Racquet racquet;
 
     public Timer(Racquet racquet) {
         this.countSecs = Configurations.GAME_BLUE_ABILITY_TIMER;

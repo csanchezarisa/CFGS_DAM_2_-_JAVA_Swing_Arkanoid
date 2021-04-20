@@ -45,8 +45,8 @@ public class Main {
         MAIN_FRAME.addKeyListener(new KeyListener() {
             @Override
             public void keyTyped(KeyEvent e) {
-                switch (e.getKeyCode()) {
-                    case KeyEvent.VK_ESCAPE -> keyEscapePressed();
+                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
+                    keyEscapePressed();
                 }
             }
 
@@ -198,8 +198,8 @@ public class Main {
 
     /** Si el juego está en estado RUNNING lo pasa a pausado */
     private static void keyEscapePressed() {
-        switch (gameState) {
-            case RUNNING -> gameState = GameStateEnum.PAUSED;
+        if (gameState == GameStateEnum.RUNNING) {
+            gameState = GameStateEnum.PAUSED;
         }
     }
 
