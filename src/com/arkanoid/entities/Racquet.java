@@ -17,10 +17,10 @@ public class Racquet {
 
     Color color;
     private AbilitiesEnum ability;
-    int x;
-    int xa = 0;
+    double x;
+    double xa = 0;
     private final Game game;
-    private int speed;
+    private double speed;
     private Timer timer;
 
     public Racquet(Game game) {
@@ -42,7 +42,7 @@ public class Racquet {
 
     public void paint(Graphics2D g) {
         g.setColor(color);
-        g.fillRect(x, Y, width, height);
+        g.fillRect((int) Math.round(x), Y, width, height);
     }
 
     public void keyReleased(KeyEvent e) {
@@ -57,11 +57,7 @@ public class Racquet {
     }
 
     public Rectangle getBounds() {
-        return new Rectangle(x, Y, width, height);
-    }
-
-    public int getTopY() {
-        return Y - height;
+        return new Rectangle((int) Math.round(x), Y, width, height);
     }
 
     /** Permite setear una ability para la pala
