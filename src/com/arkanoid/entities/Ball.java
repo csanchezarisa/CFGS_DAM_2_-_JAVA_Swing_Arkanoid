@@ -13,10 +13,10 @@ public class Ball {
 
     private static int diameter;
 
-    int x;
-    int y;
-    int xa;
-    int ya;
+    double x;
+    double y;
+    double xa;
+    double ya;
     private final Game game;
 
     public Ball(Game game) {
@@ -41,19 +41,8 @@ public class Ball {
             //game.onBallOut();
         }
         else if (racquetCollision()) {
-
-            if (leftRacquetCollision()) {
-                xa = -game.speed;
-            }
-            else if (centerRacquetCollision()) {
-                xa = game.speed / 2;
-            }
-            else if (rightRacquetCollision()) {
-                xa = game.speed;
-            }
-
+            xa = ((x - game.getRacquet().x - (Racquet.width / 2)) / (Racquet.width / 2)) * game.speed;
             ya = -game.speed;
-            y = game.getRacquet().getTopY() - diameter;
             game.updateScore();
         }
         else if (brickCollision()) {
@@ -68,18 +57,6 @@ public class Ball {
      * @return true si hay colisión, false si no la hay */
     private boolean racquetCollision() {
         return getBounds().intersects(game.getRacquet().getBounds());
-    }
-
-    private boolean leftRacquetCollision() {
-        return getBounds().intersects(game.getRacquet().getLeftBounds());
-    }
-
-    private boolean rightRacquetCollision() {
-        return getBounds().intersects(game.getRacquet().getRightBounds());
-    }
-
-    private boolean centerRacquetCollision() {
-        return getBounds().intersects(game.getRacquet().getCenterBounds());
     }
 
     /** Revisa si hay colisión con alguno de los ladrillos
@@ -100,7 +77,7 @@ public class Ball {
 
     /** Pinta la bola en las posiciones caluladas */
     public void paint(Graphics2D g) {
-        g.fillOval(x, y, diameter, diameter);
+        g.fillOval((int) Math.round(x), (int) Math.round(y), diameter, diameter);
     }
 
     /** Devuelve el shape con la posición y la medida de la bola

@@ -11,9 +11,9 @@ import java.awt.event.KeyEvent;
 
 public class Racquet {
 
-    private static int Y = 330;
-    private static int width = 60;
-    private static int height = 10;
+    static int Y = 330;
+    public static int width = 60;
+    static int height = 10;
 
     Color color;
     private AbilitiesEnum ability;
@@ -58,18 +58,6 @@ public class Racquet {
 
     public Rectangle getBounds() {
         return new Rectangle(x, Y, width, height);
-    }
-
-    public Rectangle getLeftBounds() {
-        return new Rectangle(x, Y, width / 3, height);
-    }
-
-    public Rectangle getCenterBounds() {
-        return new Rectangle(x + (width / 3), Y, width / 3, height);
-    }
-
-    public Rectangle getRightBounds() {
-        return new Rectangle(x + (width * 2 / 3), Y, width / 3, height);
     }
 
     public int getTopY() {
