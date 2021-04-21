@@ -97,9 +97,13 @@ public class Game extends JPanel {
     /** Realiza los cálculos para ver en qué posiciones
      * hay que pintar los objetos por pantalla */
     public void move() {
-        ball.move();
-        racquet.move();
-        moveBricks();
+        // Se crean tres hilos para hacer los cálculos de las posiciones de los objetos
+        Runnable moveBricks = this::moveBricks;
+        moveBricks.run();
+        Runnable moveBall = this::moveBall;
+        moveBall.run();
+        Runnable moveRacquet = this::moveRacquet;
+        moveRacquet.run();
     }
 
     /** Ejecuta el método move de todos y cada uno de los
@@ -122,6 +126,18 @@ public class Game extends JPanel {
                 }
             }
         }
+    }
+
+    /** Ejecuta el método move de la pelota para calcular
+     * su próxima posición */
+    private void moveBall() {
+        this.ball.move();
+    }
+
+    /** Ejecuta el método move de la pala para calcular
+     * su proxima posición */
+    private void moveRacquet() {
+        this.racquet.move();
     }
 
     @Override
