@@ -1,9 +1,12 @@
 package com.arkanoid;
 
 import com.arkanoid.assets.gamestate.GameStateEnum;
+import com.arkanoid.assets.sounds.Sounds;
+import com.arkanoid.assets.sounds.SoundsEnum;
 import com.arkanoid.config.Configurations;
 
 import javax.swing.*;
+import java.applet.AudioClip;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
@@ -15,6 +18,13 @@ public class Main {
     public static Game game;
 
     public static int gameSleep = 5;
+
+    /** Array con los sonidos que se pueden usar */
+    private static final AudioClip[] SOUNDS = new AudioClip[] {
+            Sounds.BACK,
+            Sounds.BALL,
+            Sounds.GAME_OVER
+    };
 
     /** Estado en el que se encuentra el juego actualmente */
     public static GameStateEnum gameState = GameStateEnum.START;
@@ -192,8 +202,11 @@ public class Main {
     public static void ballOut(int lives) {
         if (lives > 0)
             gameState = GameStateEnum.BALL_RESET;
-        else
+        else {
             gameState = GameStateEnum.FINAL_LOSE;
+            stopSounds();
+            playSound(SoundsEnum.GAME_OVER);
+        }
     }
 
     /** Si el juego está en estado RUNNING lo pasa a pausado */
@@ -203,8 +216,24 @@ public class Main {
         }
     }
 
+    /** Pinta un Label con la puntuación actual y las vidas que tiene */
     private static void paintScore() {
         SCORE_LABEL.setText("Score: " + game.getScore() + "        Lives: " + "♥ ".repeat(game.getLives()));
     }
 
+    /** Para todos los sonidos que se estan ejecutando */
+    public static void stopSounds() {
+        for (AudioClip audio:
+             SOUNDS) {
+            audio.stop();
+        }
+    }
+
+    public static void playSound(SoundsEnum sound) {
+        switch (sound) {
+            case BACKGROUND -> SOUNDS[0].loop();
+            case BALL_TOUCH -> SOUNDS[1].play();
+            case GAME_OVER -> SOUNDS[2].play();
+        }
+    }
 }

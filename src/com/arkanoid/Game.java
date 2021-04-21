@@ -1,6 +1,7 @@
 package com.arkanoid;
 
 import com.arkanoid.assets.gamestate.GameStateEnum;
+import com.arkanoid.assets.sounds.SoundsEnum;
 import com.arkanoid.config.Configurations;
 import com.arkanoid.entities.Ball;
 import com.arkanoid.entities.Racquet;
@@ -24,6 +25,8 @@ public class Game extends JPanel {
     /** Constructor de la clase Game. Prepara el panel y crea
      * los elementos necesarios para poder jugar */
     public Game() {
+        Main.stopSounds();
+        Main.playSound(SoundsEnum.BACKGROUND);
         setBackground(Color.lightGray);
         lives = Configurations.GAME_INITIAL_LIVES;
         speed = 1 + (Configurations.GAME_SPEED_INCREMENT * score);

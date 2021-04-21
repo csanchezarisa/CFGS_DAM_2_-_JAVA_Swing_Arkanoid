@@ -2,6 +2,7 @@ package com.arkanoid.entities;
 
 import com.arkanoid.Game;
 import com.arkanoid.Main;
+import com.arkanoid.assets.sounds.SoundsEnum;
 import com.arkanoid.config.Configurations;
 import com.arkanoid.entities.brick.Brick;
 
@@ -30,24 +31,38 @@ public class Ball {
     
     /** Hace los cálculos y setea las nuevas posiciones */
     public void move() {
-        if (x + xa < 0)
+        boolean changeDirection = false;
+
+        if (x + xa < 0) {
             xa = game.speed;
-        else if (x + xa > game.getWidth() - diameter)
+            changeDirection = true;
+        }
+        else if (x + xa > game.getWidth() - diameter) {
             xa = -game.speed;
-        else if (y + ya < 0)
+            changeDirection = true;
+        }
+        else if (y + ya < 0) {
             ya = game.speed;
+            changeDirection = true;
+        }
         else if (y + ya > game.getHeight() - diameter) {
             ya = -game.speed;
             game.onBallOut();
+            changeDirection = true;
         }
         else if (racquetCollision()) {
             xa = ((x - game.getRacquet().x - (Racquet.width / 2)) / (Racquet.width / 2)) * game.speed;
             ya = -game.speed;
             game.updateScore();
+            changeDirection = true;
         }
         else if (brickCollision()) {
             ya = -ya;
+            changeDirection = true;
         }
+
+        if (changeDirection)
+            Main.playSound(SoundsEnum.BALL_TOUCH);
 
         x = x + xa;
         y = y + ya;
