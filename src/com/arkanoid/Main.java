@@ -14,7 +14,7 @@ public class Main {
     public static JLabel SCORE_LABEL;
     public static Game game;
 
-    public static int gameSleep = 8;
+    public static int gameSleep = 5;
 
     /** Estado en el que se encuentra el juego actualmente */
     public static GameStateEnum gameState = GameStateEnum.START;

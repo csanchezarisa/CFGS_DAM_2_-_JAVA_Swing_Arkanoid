@@ -47,8 +47,8 @@ public class Game extends JPanel {
         Brick[][] bricks = new Brick[rowNumber][colNumber];
 
         // Se rellena el array con ladrillos aleatorios
-        for (int row = 0; row < bricks.length; row++) {
-            for (int col = 0; col < bricks[row].length; col++) {
+        for (int row = bricks.length - 1; row >= 0; row--) {
+            for (int col = bricks[row].length - 1; col >= 0; col--) {
 
                 // Se busca un número random entre 1 y 3
                 int randomColorBrick = (int) (Math.random() * 3 + 1);
@@ -107,9 +107,10 @@ public class Game extends JPanel {
      * Si el ladrillo ha caído y ha salido de la pantalla,
      * se eliminará */
     private void moveBricks() {
+
         // Se recorren todas las posiciones de la lista
-        for (int row = 0; row < bricks.length; row++) {
-            for (int col = 0; col < bricks[row].length; col++) {
+        for (int row = bricks.length - 1; row >= 0; row--) {
+            for (int col = bricks[row].length - 1; col >= 0; col--) {
 
                 // ¿Hay un ladrillo en esta posición?
                 if (bricks[row][col] != null) {
@@ -164,10 +165,6 @@ public class Game extends JPanel {
 
     public int getScore() {
         return score;
-    }
-
-    public Ball getBall() {
-        return ball;
     }
 
     public Racquet getRacquet() {
