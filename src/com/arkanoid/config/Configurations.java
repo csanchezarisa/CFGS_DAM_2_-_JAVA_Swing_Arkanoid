@@ -54,4 +54,6 @@ public class Configurations {
     public static final String RACQUET_BASE_COLOR = "#000000";
     public static final String RACQUET_KILL_COLOR = "#922B21";
     public static final String RACQUET_SPEED_COLOR = "#3146FF";
+    public static final String RACQUET_SPEED_COLOR_3_S = "#2535BF";
+    public static final String RACQUET_SPEED_COLOR_1_S = "#192380";
 }

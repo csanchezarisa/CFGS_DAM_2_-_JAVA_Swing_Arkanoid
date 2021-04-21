@@ -82,7 +82,6 @@ public class Racquet {
 
     /** Ability speed que aumenta la velocidad de la pala */
     private void speedAbility() {
-        color = Color.decode(Configurations.RACQUET_SPEED_COLOR);
         speed = speed + Configurations.RACQUET_SPEED_ABILITY;
         width = Main.MAIN_FRAME.getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE * 2;
 
@@ -106,5 +105,9 @@ public class Racquet {
         color = Color.decode(Configurations.RACQUET_BASE_COLOR);
         speed = Configurations.RACQUET_BASE_SPEED + game.speed;
         width = Main.MAIN_FRAME.getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE;
+    }
+
+    public void setColor(String color) {
+        this.color = Color.decode(color);
     }
 }

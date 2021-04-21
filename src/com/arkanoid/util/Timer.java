@@ -18,6 +18,13 @@ public class Timer extends Thread {
     public void run() {
         while (countSecs > 0) {
             countSecs--;
+
+            switch (countSecs) {
+                case 9 -> racquet.setColor(Configurations.RACQUET_SPEED_COLOR);
+                case 3 -> racquet.setColor(Configurations.RACQUET_SPEED_COLOR_3_S);
+                case 1 -> racquet.setColor(Configurations.RACQUET_SPEED_COLOR_1_S);
+            }
+
             try {
                 Thread.sleep(1000);
             } catch (InterruptedException e) {
