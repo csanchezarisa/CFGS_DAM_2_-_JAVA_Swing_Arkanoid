@@ -23,7 +23,9 @@ public class Main {
     private static final AudioClip[] SOUNDS = new AudioClip[] {
             Sounds.BACK,
             Sounds.BALL,
-            Sounds.GAME_OVER
+            Sounds.GAME_OVER,
+            Sounds.POWER_UP,
+            Sounds.PAUSE
     };
 
     /** Estado en el que se encuentra el juego actualmente */
@@ -131,6 +133,9 @@ public class Main {
      * se muestra un alert con la opción de seguir jugando o salir
      * del juego*/
     private static void gamePaused() {
+        stopSounds();
+        playSound(SoundsEnum.PAUSE);
+
         Main.paintScore();
         game.repaint();
         int result = JOptionPane.showOptionDialog(
@@ -145,7 +150,10 @@ public class Main {
         );
 
         switch (result) {
-            case JOptionPane.YES_OPTION -> gameState = GameStateEnum.RUNNING;
+            case JOptionPane.YES_OPTION -> {
+                gameState = GameStateEnum.RUNNING;
+                playSound(SoundsEnum.BACKGROUND);
+            }
             case JOptionPane.NO_OPTION -> exitGame = true;
         }
     }
@@ -234,6 +242,8 @@ public class Main {
             case BACKGROUND -> SOUNDS[0].loop();
             case BALL_TOUCH -> SOUNDS[1].play();
             case GAME_OVER -> SOUNDS[2].play();
+            case POWER_UP -> SOUNDS[3].play();
+            case PAUSE -> SOUNDS[4].play();
         }
     }
 }

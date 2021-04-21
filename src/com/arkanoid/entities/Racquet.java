@@ -3,6 +3,7 @@ package com.arkanoid.entities;
 import com.arkanoid.Game;
 import com.arkanoid.Main;
 import com.arkanoid.assets.abilities.AbilitiesEnum;
+import com.arkanoid.assets.sounds.SoundsEnum;
 import com.arkanoid.config.Configurations;
 import com.arkanoid.util.Timer;
 
@@ -82,6 +83,9 @@ public class Racquet {
 
     /** Ability speed que aumenta la velocidad de la pala */
     private void speedAbility() {
+
+        Main.playSound(SoundsEnum.POWER_UP);
+
         this.color = Color.decode(Configurations.RACQUET_SPEED_COLOR);
         speed = speed + Configurations.RACQUET_SPEED_ABILITY;
         width = Main.MAIN_FRAME.getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE * 2;
