@@ -17,7 +17,7 @@ public class Game extends JPanel {
 
     private Ball ball;
     private Racquet racquet;
-    private final Brick[][] bricks;
+    private Brick[][] bricks;
     private int lives;
     private int score = Configurations.GAME_INITIAL_SCORE;
     public double speed;
@@ -25,14 +25,21 @@ public class Game extends JPanel {
     /** Constructor de la clase Game. Prepara el panel y crea
      * los elementos necesarios para poder jugar */
     public Game() {
-        Main.stopSounds();
-        Main.playSound(SoundsEnum.BACKGROUND);
+        speed = 1 + (Configurations.GAME_SPEED_INCREMENT * score);
         setBackground(Color.lightGray);
         lives = Configurations.GAME_INITIAL_LIVES;
-        speed = 1 + (Configurations.GAME_SPEED_INCREMENT * score);
-        ball = new Ball(this);
-        racquet = new Racquet(this);
-        bricks = initializeBricks();
+
+        // De manera paralella se crean los ladrillos, la bola y la raqueta
+        Runnable initializeBricks = () -> bricks = initializeBricks();
+        initializeBricks.run();
+        Runnable initializeBall = () -> ball = new Ball(this);
+        initializeBall.run();
+        Runnable initializeRacquet = () -> racquet = new Racquet(this);
+        initializeRacquet.run();
+
+        // Se reproduce el sonido principal del juego
+        Main.stopSounds();
+        Main.playSound(SoundsEnum.BACKGROUND);
     }
 
     /** Crea el array con los ladrillos */
