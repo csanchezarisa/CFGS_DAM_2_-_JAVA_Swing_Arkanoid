@@ -203,6 +203,10 @@ public class Game extends JPanel {
         return bricks;
     }
 
+    public Ball getBall() {
+        return ball;
+    }
+
     public int getLives() {
         return lives;
     }
