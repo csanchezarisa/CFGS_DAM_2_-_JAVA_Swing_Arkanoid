@@ -22,9 +22,9 @@ public class Ball {
 
     public Ball(Game game) {
         this.game = game;
-        x = (int) (Math.random() * (Main.MAIN_FRAME.getWidth()));
-        diameter = Main.MAIN_FRAME.getWidth() / Configurations.BALL_RELATIVE_SIZE;
-        y = Main.MAIN_FRAME.getHeight() / Configurations.BRICK_RELATIVE_HEIGHT_SIZE * (Configurations.BRICKS_ROWS + 1);
+        x = (int) (Math.random() * (game.getMainFrame().getWidth()));
+        diameter = game.getMainFrame().getWidth() / Configurations.BALL_RELATIVE_SIZE;
+        y = game.getMainFrame().getHeight() / Configurations.BRICK_RELATIVE_HEIGHT_SIZE * (Configurations.BRICKS_ROWS + 1);
         xa = game.speed;
         ya = game.speed;
     }

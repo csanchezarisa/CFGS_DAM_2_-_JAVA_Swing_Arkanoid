@@ -50,7 +50,7 @@ public class Main {
         SCORE_LABEL.setFont(new Font("Segoe UI Symbol", Font.BOLD, 18));
 
         // Se inicializa la clase juego
-        game = new Game();
+        game = new Game(MAIN_FRAME);
         MAIN_FRAME.add(game, "Center");
 
         // Se crea un listener para escuchar cuando se pulsa cualquier tecla en el frame

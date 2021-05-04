@@ -23,8 +23,8 @@ public abstract class Brick {
         this.y = y;
         this.x = x;
         this.game = game;
-        width = Main.MAIN_FRAME.getWidth() / Configurations.BRICK_RELATIVE_WIDTH_SIZE;
-        height = Main.MAIN_FRAME.getHeight() / Configurations.BRICK_RELATIVE_HEIGHT_SIZE;
+        width = game.getMainFrame().getWidth() / Configurations.BRICK_RELATIVE_WIDTH_SIZE;
+        height = game.getMainFrame().getHeight() / Configurations.BRICK_RELATIVE_HEIGHT_SIZE;
     }
 
     /** Calcula la posición Y del ladrillo.
@@ -41,7 +41,7 @@ public abstract class Brick {
 
             Racquet racquet = game.getRacquet();
 
-            if (y > Main.MAIN_FRAME.getHeight())
+            if (y > game.getMainFrame().getHeight())
                 outOfBounds = true;
             else if (collision(racquet.getBounds())) {
                 racquet.setAbility(this.ability);

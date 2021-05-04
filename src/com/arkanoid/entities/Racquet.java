@@ -26,10 +26,10 @@ public class Racquet {
 
     public Racquet(Game game) {
         this.game = game;
-        width = Main.MAIN_FRAME.getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE;
-        height = Main.MAIN_FRAME.getHeight() / Configurations.RACQUET_RELATIVE_HEIGHT_SIZE;
-        Y = Main.MAIN_FRAME.getHeight() + Configurations.RACQUET_Y_SPAWN_POSITION;
-        x = (Main.MAIN_FRAME.getWidth() / 2) - (width / 2);
+        width = game.getMainFrame().getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE;
+        height = game.getMainFrame().getHeight() / Configurations.RACQUET_RELATIVE_HEIGHT_SIZE;
+        Y = game.getMainFrame().getHeight() + Configurations.RACQUET_Y_SPAWN_POSITION;
+        x = (game.getMainFrame().getWidth() / 2) - (width / 2);
         ability = AbilitiesEnum.NORMAL;
         color = Color.decode(Configurations.RACQUET_BASE_COLOR);
         speed = Configurations.RACQUET_BASE_SPEED;
@@ -89,7 +89,7 @@ public class Racquet {
         this.color = Color.decode(Configurations.RACQUET_SPEED_COLOR);
         speed = speed + Configurations.RACQUET_SPEED_ABILITY;
         int lastWidth = width;
-        width = Main.MAIN_FRAME.getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE * 2;
+        width = game.getMainFrame().getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE * 2;
         x += ((lastWidth / 2) - (width / 2));
 
         // Hay algun cronómetro ya activo?
@@ -107,7 +107,7 @@ public class Racquet {
         color = Color.decode(Configurations.RACQUET_BASE_COLOR);
         speed = Configurations.RACQUET_BASE_SPEED + game.speed;
         final int lastWidth = width;
-        width = Main.MAIN_FRAME.getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE;
+        width = game.getMainFrame().getWidth() / Configurations.RACQUET_RELATIVE_WIDTH_SIZE;
         x += ((lastWidth / 2) - (width / 2));
     }
 

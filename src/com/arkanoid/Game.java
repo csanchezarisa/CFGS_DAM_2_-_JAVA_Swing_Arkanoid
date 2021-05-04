@@ -21,13 +21,15 @@ public class Game extends JPanel {
     private int lives;
     private int score = Configurations.GAME_INITIAL_SCORE;
     public double speed;
+    private JFrame mainFrame;
 
     /** Constructor de la clase Game. Prepara el panel y crea
      * los elementos necesarios para poder jugar */
-    public Game() {
+    public Game(JFrame frame) {
         speed = 1 + (Configurations.GAME_SPEED_INCREMENT * score);
         setBackground(Color.lightGray);
         lives = Configurations.GAME_INITIAL_LIVES;
+        mainFrame = frame;
 
         // De manera paralella se crean los ladrillos, la bola y la raqueta
         Runnable initializeBricks = () -> bricks = initializeBricks();
@@ -46,11 +48,11 @@ public class Game extends JPanel {
     private Brick[][] initializeBricks() {
 
         // Se calcula el tamaño de cada ladrillo según las configuraciones especificadas
-        int brickWidth = Main.MAIN_FRAME.getWidth() / Configurations.BRICK_RELATIVE_WIDTH_SIZE;
-        int brickHeight = Main.MAIN_FRAME.getHeight() / Configurations.BRICK_RELATIVE_HEIGHT_SIZE;
+        int brickWidth = mainFrame.getWidth() / Configurations.BRICK_RELATIVE_WIDTH_SIZE;
+        int brickHeight = mainFrame.getHeight() / Configurations.BRICK_RELATIVE_HEIGHT_SIZE;
 
         // Se calcula el número de columnas y filas que habrá de ladrillos
-        int colNumber = Main.MAIN_FRAME.getWidth() / brickWidth;
+        int colNumber = mainFrame.getWidth() / brickWidth;
         int rowNumber = Configurations.BRICKS_ROWS;
 
         // Se crea el array de ladrillos con las medidas calculadas
@@ -207,5 +209,9 @@ public class Game extends JPanel {
 
     public void setLives(int lives) {
         this.lives = lives;
+    }
+
+    public JFrame getMainFrame() {
+        return mainFrame;
     }
 }
