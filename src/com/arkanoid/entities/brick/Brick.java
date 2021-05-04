@@ -1,10 +1,10 @@
-package main.com.arkanoid.entities.brick;
+package com.arkanoid.entities.brick;
 
-import main.com.arkanoid.Game;
-import main.com.arkanoid.Main;
-import main.com.arkanoid.assets.abilities.AbilitiesEnum;
-import main.com.arkanoid.config.Configurations;
-import main.com.arkanoid.entities.Racquet;
+import com.arkanoid.Game;
+import com.arkanoid.Main;
+import com.arkanoid.assets.abilities.AbilitiesEnum;
+import com.arkanoid.config.Configurations;
+import com.arkanoid.entities.Racquet;
 
 import java.awt.*;
 

@@ -1,8 +1,8 @@
-package main.com.arkanoid.util;
+package com.arkanoid.util;
 
-import main.com.arkanoid.assets.abilities.AbilitiesEnum;
-import main.com.arkanoid.config.Configurations;
-import main.com.arkanoid.entities.Racquet;
+import com.arkanoid.assets.abilities.AbilitiesEnum;
+import com.arkanoid.config.Configurations;
+import com.arkanoid.entities.Racquet;
 
 public class Timer extends Thread {
 

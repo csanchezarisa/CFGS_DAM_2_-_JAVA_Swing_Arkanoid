@@ -1,4 +1,4 @@
-package main.com.arkanoid.config;
+package com.arkanoid.config;
 
 /**
  * Todas las configuraciones y definiciones

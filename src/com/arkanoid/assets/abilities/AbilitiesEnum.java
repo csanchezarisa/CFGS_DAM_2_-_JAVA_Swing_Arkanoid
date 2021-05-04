@@ -1,4 +1,4 @@
-package main.com.arkanoid.assets.abilities;
+package com.arkanoid.assets.abilities;
 
 public enum AbilitiesEnum {
     NORMAL,

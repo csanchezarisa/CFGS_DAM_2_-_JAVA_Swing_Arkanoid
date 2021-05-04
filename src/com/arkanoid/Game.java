@@ -1,14 +1,14 @@
-package main.com.arkanoid;
+package com.arkanoid;
 
-import main.com.arkanoid.assets.gamestate.GameStateEnum;
-import main.com.arkanoid.assets.sounds.SoundsEnum;
-import main.com.arkanoid.config.Configurations;
-import main.com.arkanoid.entities.Ball;
-import main.com.arkanoid.entities.Racquet;
-import main.com.arkanoid.entities.brick.BlueBrick;
-import main.com.arkanoid.entities.brick.Brick;
-import main.com.arkanoid.entities.brick.GreenBrick;
-import main.com.arkanoid.entities.brick.RedBrick;
+import com.arkanoid.assets.gamestate.GameStateEnum;
+import com.arkanoid.assets.sounds.SoundsEnum;
+import com.arkanoid.config.Configurations;
+import com.arkanoid.entities.Ball;
+import com.arkanoid.entities.Racquet;
+import com.arkanoid.entities.brick.BlueBrick;
+import com.arkanoid.entities.brick.Brick;
+import com.arkanoid.entities.brick.GreenBrick;
+import com.arkanoid.entities.brick.RedBrick;
 
 import javax.swing.*;
 import java.awt.*;

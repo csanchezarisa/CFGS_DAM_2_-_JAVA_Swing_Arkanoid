@@ -1,8 +1,8 @@
-package main.com.arkanoid.entities.brick;
+package com.arkanoid.entities.brick;
 
-import main.com.arkanoid.Game;
-import main.com.arkanoid.assets.abilities.AbilitiesEnum;
-import main.com.arkanoid.config.Configurations;
+import com.arkanoid.Game;
+import com.arkanoid.assets.abilities.AbilitiesEnum;
+import com.arkanoid.config.Configurations;
 
 import java.awt.*;
 

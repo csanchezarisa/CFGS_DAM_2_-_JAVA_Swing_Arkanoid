@@ -1,4 +1,4 @@
-package main.com.arkanoid.assets.sounds;
+package com.arkanoid.assets.sounds;
 
 public enum SoundsEnum {
     BACKGROUND,
