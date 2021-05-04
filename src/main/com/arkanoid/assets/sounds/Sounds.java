@@ -1,4 +1,4 @@
-package com.arkanoid.assets.sounds;
+package main.com.arkanoid.assets.sounds;
 
 import java.applet.Applet;
 import java.applet.AudioClip;

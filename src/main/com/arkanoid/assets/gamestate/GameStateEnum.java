@@ -1,4 +1,4 @@
-package com.arkanoid.assets.gamestate;
+package main.com.arkanoid.assets.gamestate;
 
 public enum GameStateEnum {
     START,

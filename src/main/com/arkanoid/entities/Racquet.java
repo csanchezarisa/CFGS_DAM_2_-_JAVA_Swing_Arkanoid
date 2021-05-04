@@ -1,11 +1,11 @@
-package com.arkanoid.entities;
+package main.com.arkanoid.entities;
 
-import com.arkanoid.Game;
-import com.arkanoid.Main;
-import com.arkanoid.assets.abilities.AbilitiesEnum;
-import com.arkanoid.assets.sounds.SoundsEnum;
-import com.arkanoid.config.Configurations;
-import com.arkanoid.util.Timer;
+import main.com.arkanoid.Game;
+import main.com.arkanoid.Main;
+import main.com.arkanoid.assets.abilities.AbilitiesEnum;
+import main.com.arkanoid.assets.sounds.SoundsEnum;
+import main.com.arkanoid.config.Configurations;
+import main.com.arkanoid.util.Timer;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;

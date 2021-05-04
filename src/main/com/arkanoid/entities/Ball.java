@@ -1,10 +1,10 @@
-package com.arkanoid.entities;
+package main.com.arkanoid.entities;
 
-import com.arkanoid.Game;
-import com.arkanoid.Main;
-import com.arkanoid.assets.sounds.SoundsEnum;
-import com.arkanoid.config.Configurations;
-import com.arkanoid.entities.brick.Brick;
+import main.com.arkanoid.Game;
+import main.com.arkanoid.Main;
+import main.com.arkanoid.assets.sounds.SoundsEnum;
+import main.com.arkanoid.config.Configurations;
+import main.com.arkanoid.entities.brick.Brick;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;

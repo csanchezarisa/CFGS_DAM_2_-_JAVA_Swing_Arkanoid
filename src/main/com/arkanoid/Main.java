@@ -1,9 +1,9 @@
-package com.arkanoid;
+package main.com.arkanoid;
 
-import com.arkanoid.assets.gamestate.GameStateEnum;
-import com.arkanoid.assets.sounds.Sounds;
-import com.arkanoid.assets.sounds.SoundsEnum;
-import com.arkanoid.config.Configurations;
+import main.com.arkanoid.assets.gamestate.GameStateEnum;
+import main.com.arkanoid.assets.sounds.Sounds;
+import main.com.arkanoid.assets.sounds.SoundsEnum;
+import main.com.arkanoid.config.Configurations;
 
 import javax.swing.*;
 import java.applet.AudioClip;
