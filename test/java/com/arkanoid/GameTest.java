@@ -1,4 +1,4 @@
-package java.com.arkanoid;
+package com.arkanoid;
 
 public class GameTest {
 }
