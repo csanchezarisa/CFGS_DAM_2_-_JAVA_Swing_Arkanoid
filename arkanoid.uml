@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>C:/Users/Ulkiobal/IdeaProjects/CFGS_DAM_-_JAVA_Swing_Arkanoid/src/com/arkanoid</OriginalElement>
+  <nodes>
+    <node x="315.40178571428567" y="897.0">com.arkanoid.util.Timer</node>
+    <node x="701.883720627989" y="2186.0">com.arkanoid.entities.brick.GreenBrick</node>
+    <node x="871.3435420565604" y="2623.0">com.arkanoid.assets.sounds.Sounds</node>
+    <node x="460.71705396132234" y="2186.0">com.arkanoid.entities.brick.BlueBrick</node>
+    <node x="164.32593184653786" y="2075.0">com.arkanoid.entities.Ball</node>
+    <node x="91.40178571428567" y="853.0">com.arkanoid.assets.sounds.SoundsEnum</node>
+    <node x="184.98040782907015" y="0.0">com.arkanoid.config.Configurations</node>
+    <node x="449.98040782907015" y="307.5">com.arkanoid.assets.abilities.AbilitiesEnum</node>
+    <node x="1214.5280268766892" y="2108.5">com.arkanoid.assets.gamestate.GameStateEnum</node>
+    <node x="281.3137476606361" y="1119.0">com.arkanoid.entities.Racquet</node>
+    <node x="379.54468184653774" y="2490.0">com.arkanoid.Game</node>
+    <node x="672.7170539613223" y="1636.0">com.arkanoid.entities.brick.Brick</node>
+    <node x="380.79468184653774" y="2997.0">com.arkanoid.Main</node>
+    <node x="919.133720627989" y="2186.0">com.arkanoid.entities.brick.RedBrick</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="com.arkanoid.entities.Racquet" target="com.arkanoid.assets.sounds.SoundsEnum" relationship="DEPENDENCY">
+      <point x="-85.3125" y="-227.5" />
+      <point x="293.5012476606361" y="1097.0" />
+      <point x="192.90178571428567" y="1097.0" />
+      <point x="0.0" y="106.0" />
+    </edge>
+    <edge source="com.arkanoid.entities.Racquet" target="com.arkanoid.util.Timer" relationship="TO_ONE">
+      <point x="-36.5625" y="-227.5" />
+      <point x="342.2512476606361" y="1097.0" />
+      <point x="332.27678571428567" y="1097.0" />
+      <point x="-50.625" y="62.0" />
+    </edge>
+    <edge source="com.arkanoid.entities.Ball" target="com.arkanoid.entities.brick.Brick" relationship="DEPENDENCY">
+      <point x="70.875" y="-150.5" />
+      <point x="329.70093184653786" y="2054.0" />
+      <point x="389.3137476606361" y="2054.0" />
+      <point x="389.3137476606361" y="2024.0" />
+      <point x="692.6170539613223" y="2024.0" />
+      <point x="-79.60000000000002" y="183.5" />
+    </edge>
+    <edge source="com.arkanoid.util.Timer" target="com.arkanoid.entities.Racquet" relationship="TO_ONE">
+      <point x="16.875" y="62.0" />
+      <point x="399.77678571428567" y="1097.0" />
+      <point x="391.0012476606361" y="1097.0" />
+      <point x="12.1875" y="-227.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.BlueBrick" target="com.arkanoid.Game" relationship="DEPENDENCY">
+      <point x="45.0" y="39.5" />
+      <point x="595.7170539613223" y="2398.0" />
+      <point x="653.7634318465377" y="2398.0" />
+      <point x="653.7634318465377" y="2468.0" />
+      <point x="501.5803961322521" y="2468.0" />
+      <point x="21.535714285714334" y="-216.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.RedBrick" target="com.arkanoid.config.Configurations" relationship="DEPENDENCY">
+      <point x="1.1368683772161603E-13" y="-39.5" />
+      <point x="1007.6337206279891" y="2054.0" />
+      <point x="1031.633720627989" y="2054.0" />
+      <point x="1031.633720627989" y="823.0" />
+      <point x="307.48040782907015" y="823.0" />
+      <point x="0.0" y="391.5" />
+    </edge>
+    <edge source="com.arkanoid.Game" target="com.arkanoid.assets.sounds.SoundsEnum" relationship="DEPENDENCY">
+      <point x="-78.96428571428572" y="-216.5" />
+      <point x="401.0803961322521" y="2448.0" />
+      <point x="47.339285714285666" y="2448.0" />
+      <point x="47.339285714285666" y="1097.0" />
+      <point x="192.90178571428567" y="1097.0" />
+      <point x="0.0" y="106.0" />
+    </edge>
+    <edge source="com.arkanoid.entities.Racquet" target="com.arkanoid.assets.abilities.AbilitiesEnum" relationship="TO_ONE">
+      <point x="60.9375" y="-227.5" />
+      <point x="439.7512476606361" y="1087.0" />
+      <point x="505.12330396132234" y="1087.0" />
+      <point x="505.12330396132234" y="833.0" />
+      <point x="523.8866578290701" y="833.0" />
+      <point x="523.8866578290701" y="803.0" />
+      <point x="501.48040782907015" y="803.0" />
+      <point x="-51.5" y="84.0" />
+    </edge>
+    <edge source="com.arkanoid.Game" target="com.arkanoid.entities.brick.BlueBrick" relationship="CREATE">
+      <point x="7.178571428571445" y="-216.5" />
+      <point x="487.2232532751092" y="2458.0" />
+      <point x="505.71705396132234" y="2458.0" />
+      <point x="-45.0" y="39.5" />
+    </edge>
+    <edge source="com.arkanoid.Game" target="com.arkanoid.entities.brick.Brick" relationship="TO_MANY">
+      <point x="64.60714285714289" y="-216.5" />
+      <point x="544.6518247036806" y="2438.0" />
+      <point x="1165.3137411624034" y="2438.0" />
+      <point x="1165.3137411624034" y="2024.0" />
+      <point x="851.8170539613224" y="2024.0" />
+      <point x="79.60000000000002" y="183.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.Racquet" target="com.arkanoid.config.Configurations" relationship="DEPENDENCY">
+      <point x="-60.9375" y="-227.5" />
+      <point x="317.8762476606361" y="1097.0" />
+      <point x="304.90178571428567" y="1097.0" />
+      <point x="304.90178571428567" y="823.0" />
+      <point x="307.48040782907015" y="823.0" />
+      <point x="0.0" y="391.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.Ball" target="com.arkanoid.config.Configurations" relationship="DEPENDENCY">
+      <point x="-70.875" y="-150.5" />
+      <point x="187.95093184653786" y="2054.0" />
+      <point x="80.90178571428567" y="2054.0" />
+      <point x="80.90178571428567" y="823.0" />
+      <point x="307.48040782907015" y="823.0" />
+      <point x="0.0" y="391.5" />
+    </edge>
+    <edge source="com.arkanoid.Game" target="com.arkanoid.Main" relationship="DEPENDENCY">
+      <point x="-67.0" y="216.5" />
+      <point x="413.0446818465378" y="2945.0" />
+      <point x="61.4033063006861" y="2945.0" />
+      <point x="61.4033063006861" y="2975.0" />
+      <point x="446.1071818465378" y="2975.0" />
+      <point x="-39.1875" y="-238.0" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.Brick" target="com.arkanoid.Game" relationship="DEPENDENCY">
+      <point x="39.799999999999955" y="183.5" />
+      <point x="812.0170539613223" y="2034.0" />
+      <point x="908.633720627989" y="2034.0" />
+      <point x="908.633720627989" y="2398.0" />
+      <point x="653.7634318465377" y="2398.0" />
+      <point x="653.7634318465377" y="2468.0" />
+      <point x="501.5803961322521" y="2468.0" />
+      <point x="21.535714285714334" y="-216.5" />
+    </edge>
+    <edge source="com.arkanoid.Main" target="com.arkanoid.assets.gamestate.GameStateEnum" relationship="TO_ONE">
+      <point x="91.4375" y="-238.0" />
+      <point x="576.7321818465377" y="2975.0" />
+      <point x="1330.5280268766892" y="2975.0" />
+      <point x="1330.5280268766892" y="2468.0" />
+      <point x="1380.2780268766892" y="2468.0" />
+      <point x="55.25" y="117.0" />
+    </edge>
+    <edge source="com.arkanoid.entities.Racquet" target="com.arkanoid.util.Timer" relationship="CREATE">
+      <point x="36.5625" y="-227.5" />
+      <point x="415.3762476606361" y="1097.0" />
+      <point x="433.52678571428567" y="1097.0" />
+      <point x="50.625" y="62.0" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.Brick" target="com.arkanoid.config.Configurations" relationship="DEPENDENCY">
+      <point x="0.0" y="-183.5" />
+      <point x="772.2170539613223" y="1605.0" />
+      <point x="799.883720627989" y="1605.0" />
+      <point x="799.883720627989" y="823.0" />
+      <point x="307.48040782907015" y="823.0" />
+      <point x="0.0" y="391.5" />
+    </edge>
+    <edge source="com.arkanoid.Game" target="com.arkanoid.assets.gamestate.GameStateEnum" relationship="DEPENDENCY">
+      <point x="93.32142857142856" y="-216.5" />
+      <point x="573.3661104179663" y="2458.0" />
+      <point x="1319.5280268766892" y="2458.0" />
+      <point x="1319.5280268766892" y="2448.0" />
+      <point x="1269.7780268766892" y="2448.0" />
+      <point x="-55.25" y="117.0" />
+    </edge>
+    <edge source="com.arkanoid.entities.Ball" target="com.arkanoid.Game" relationship="TO_ONE">
+      <point x="37.80000000000001" y="150.5" />
+      <point x="296.62593184653787" y="2408.0" />
+      <point x="380.54468184653774" y="2408.0" />
+      <point x="380.54468184653774" y="2468.0" />
+      <point x="458.5089675608235" y="2468.0" />
+      <point x="-21.535714285714278" y="-216.5" />
+    </edge>
+    <edge source="com.arkanoid.Game" target="com.arkanoid.entities.Ball" relationship="TO_ONE">
+      <point x="-35.89285714285711" y="-216.5" />
+      <point x="444.15182470368063" y="2418.0" />
+      <point x="258.82593184653786" y="2418.0" />
+      <point x="0.0" y="150.5" />
+    </edge>
+    <edge source="com.arkanoid.Main" target="com.arkanoid.Game" relationship="CREATE">
+      <point x="-13.0625" y="-238.0" />
+      <point x="472.23218184653774" y="2975.0" />
+      <point x="480.04468184653774" y="2975.0" />
+      <point x="0.0" y="216.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.Brick" target="com.arkanoid.entities.Racquet" relationship="DEPENDENCY">
+      <point x="-66.33333333333326" y="-183.5" />
+      <point x="705.8837206279891" y="1615.0" />
+      <point x="749.9804143273028" y="1615.0" />
+      <point x="749.9804143273028" y="1595.0" />
+      <point x="456.8137476606361" y="1595.0" />
+      <point x="78.0" y="227.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.Racquet" target="com.arkanoid.Game" relationship="DEPENDENCY">
+      <point x="39.0" y="227.5" />
+      <point x="417.8137476606361" y="1605.0" />
+      <point x="651.2170539613223" y="1605.0" />
+      <point x="651.2170539613223" y="2398.0" />
+      <point x="653.7634318465377" y="2398.0" />
+      <point x="653.7634318465377" y="2468.0" />
+      <point x="501.5803961322521" y="2468.0" />
+      <point x="21.535714285714334" y="-216.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.GreenBrick" target="com.arkanoid.assets.abilities.AbilitiesEnum" relationship="DEPENDENCY">
+      <point x="62.66666666666663" y="-39.5" />
+      <point x="858.5503872946556" y="2044.0" />
+      <point x="882.2170539613223" y="2044.0" />
+      <point x="882.2170539613223" y="813.0" />
+      <point x="569.4804078290701" y="813.0" />
+      <point x="569.4804078290701" y="803.0" />
+      <point x="604.4804078290701" y="803.0" />
+      <point x="51.5" y="84.0" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.GreenBrick" target="com.arkanoid.config.Configurations" relationship="DEPENDENCY">
+      <point x="-62.66666666666663" y="-39.5" />
+      <point x="733.2170539613223" y="2034.0" />
+      <point x="662.2170539613223" y="2034.0" />
+      <point x="662.2170539613223" y="823.0" />
+      <point x="307.48040782907015" y="823.0" />
+      <point x="0.0" y="391.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.GreenBrick" target="com.arkanoid.entities.brick.Brick" relationship="GENERALIZATION">
+      <point x="0.0" y="-39.5" />
+      <point x="795.883720627989" y="2054.0" />
+      <point x="772.2170539613223" y="2054.0" />
+      <point x="0.0" y="183.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.Ball" target="com.arkanoid.Main" relationship="DEPENDENCY">
+      <point x="-75.60000000000002" y="150.5" />
+      <point x="183.22593184653783" y="2468.0" />
+      <point x="22.0" y="2468.0" />
+      <point x="22.0" y="2945.0" />
+      <point x="61.4033063006861" y="2945.0" />
+      <point x="61.4033063006861" y="2975.0" />
+      <point x="446.1071818465378" y="2975.0" />
+      <point x="-39.1875" y="-238.0" />
+    </edge>
+    <edge source="com.arkanoid.Game" target="com.arkanoid.config.Configurations" relationship="DEPENDENCY">
+      <point x="-93.32142857142856" y="-216.5" />
+      <point x="386.7232532751092" y="2458.0" />
+      <point x="36.339285714285666" y="2458.0" />
+      <point x="36.339285714285666" y="823.0" />
+      <point x="307.48040782907015" y="823.0" />
+      <point x="0.0" y="391.5" />
+    </edge>
+    <edge source="com.arkanoid.Game" target="com.arkanoid.entities.Ball" relationship="CREATE">
+      <point x="-50.25" y="-216.5" />
+      <point x="429.79468184653774" y="2428.0" />
+      <point x="221.02593184653784" y="2428.0" />
+      <point x="-37.80000000000001" y="150.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.Racquet" target="com.arkanoid.assets.abilities.AbilitiesEnum" relationship="DEPENDENCY">
+      <point x="85.3125" y="-227.5" />
+      <point x="464.1262476606361" y="1097.0" />
+      <point x="516.1233039613223" y="1097.0" />
+      <point x="516.1233039613223" y="813.0" />
+      <point x="569.4804078290701" y="813.0" />
+      <point x="569.4804078290701" y="803.0" />
+      <point x="604.4804078290701" y="803.0" />
+      <point x="51.5" y="84.0" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.RedBrick" target="com.arkanoid.assets.abilities.AbilitiesEnum" relationship="DEPENDENCY">
+      <point x="59.000000000000114" y="-39.5" />
+      <point x="1066.633720627989" y="2054.0" />
+      <point x="1101.3137411624036" y="2054.0" />
+      <point x="1101.3137411624036" y="813.0" />
+      <point x="569.4804078290701" y="813.0" />
+      <point x="569.4804078290701" y="803.0" />
+      <point x="604.4804078290701" y="803.0" />
+      <point x="51.5" y="84.0" />
+    </edge>
+    <edge source="com.arkanoid.Game" target="com.arkanoid.entities.Racquet" relationship="CREATE">
+      <point x="78.96428571428567" y="-216.5" />
+      <point x="559.0089675608234" y="2448.0" />
+      <point x="1176.3137411624034" y="2448.0" />
+      <point x="1176.3137411624034" y="1615.0" />
+      <point x="749.9804143273028" y="1615.0" />
+      <point x="749.9804143273028" y="1595.0" />
+      <point x="456.8137476606361" y="1595.0" />
+      <point x="78.0" y="227.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.RedBrick" target="com.arkanoid.entities.brick.Brick" relationship="GENERALIZATION">
+      <point x="-58.999999999999886" y="-39.5" />
+      <point x="948.6337206279891" y="2054.0" />
+      <point x="772.2170539613223" y="2054.0" />
+      <point x="0.0" y="183.5" />
+    </edge>
+    <edge source="com.arkanoid.Game" target="com.arkanoid.entities.brick.RedBrick" relationship="CREATE">
+      <point x="50.25" y="-216.5" />
+      <point x="530.2946818465377" y="2428.0" />
+      <point x="1051.883720627989" y="2428.0" />
+      <point x="44.250000000000114" y="39.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.RedBrick" target="com.arkanoid.Game" relationship="DEPENDENCY">
+      <point x="-44.25" y="39.5" />
+      <point x="963.383720627989" y="2398.0" />
+      <point x="653.7634318465377" y="2398.0" />
+      <point x="653.7634318465377" y="2468.0" />
+      <point x="501.5803961322521" y="2468.0" />
+      <point x="21.535714285714334" y="-216.5" />
+    </edge>
+    <edge source="com.arkanoid.Game" target="com.arkanoid.entities.brick.GreenBrick" relationship="CREATE">
+      <point x="35.89285714285711" y="-216.5" />
+      <point x="515.9375389893949" y="2418.0" />
+      <point x="842.883720627989" y="2418.0" />
+      <point x="47.0" y="39.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.Brick" target="com.arkanoid.Game" relationship="TO_ONE">
+      <point x="-39.799999999999955" y="183.5" />
+      <point x="732.4170539613224" y="2044.0" />
+      <point x="399.8137476606361" y="2044.0" />
+      <point x="399.8137476606361" y="2408.0" />
+      <point x="380.54468184653774" y="2408.0" />
+      <point x="380.54468184653774" y="2468.0" />
+      <point x="458.5089675608235" y="2468.0" />
+      <point x="-21.535714285714278" y="-216.5" />
+    </edge>
+    <edge source="com.arkanoid.util.Timer" target="com.arkanoid.entities.Racquet" relationship="DEPENDENCY">
+      <point x="-16.875" y="62.0" />
+      <point x="-12.1875" y="-227.5" />
+    </edge>
+    <edge source="com.arkanoid.Main" target="com.arkanoid.Game" relationship="TO_ONE">
+      <point x="13.0625" y="-238.0" />
+      <point x="498.35718184653774" y="2945.0" />
+      <point x="547.0446818465377" y="2945.0" />
+      <point x="67.0" y="216.5" />
+    </edge>
+    <edge source="com.arkanoid.Main" target="com.arkanoid.assets.gamestate.GameStateEnum" relationship="DEPENDENCY">
+      <point x="65.3125" y="-238.0" />
+      <point x="550.6071818465377" y="2965.0" />
+      <point x="1319.5280268766892" y="2965.0" />
+      <point x="1319.5280268766892" y="2448.0" />
+      <point x="1269.7780268766892" y="2448.0" />
+      <point x="-55.25" y="117.0" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.GreenBrick" target="com.arkanoid.Game" relationship="DEPENDENCY">
+      <point x="-47.0" y="39.5" />
+      <point x="748.883720627989" y="2398.0" />
+      <point x="653.7634318465377" y="2398.0" />
+      <point x="653.7634318465377" y="2468.0" />
+      <point x="501.5803961322521" y="2468.0" />
+      <point x="21.535714285714334" y="-216.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.BlueBrick" target="com.arkanoid.entities.brick.Brick" relationship="GENERALIZATION">
+      <point x="60.0" y="-39.5" />
+      <point x="610.7170539613223" y="2054.0" />
+      <point x="772.2170539613223" y="2054.0" />
+      <point x="0.0" y="183.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.Brick" target="com.arkanoid.assets.abilities.AbilitiesEnum" relationship="TO_ONE">
+      <point x="66.33333333333337" y="-183.5" />
+      <point x="838.5503872946557" y="1605.0" />
+      <point x="815.4804143273028" y="1605.0" />
+      <point x="815.4804143273028" y="833.0" />
+      <point x="523.8866578290701" y="833.0" />
+      <point x="523.8866578290701" y="803.0" />
+      <point x="501.48040782907015" y="803.0" />
+      <point x="-51.5" y="84.0" />
+    </edge>
+    <edge source="com.arkanoid.util.Timer" target="com.arkanoid.config.Configurations" relationship="DEPENDENCY">
+      <point x="-33.75" y="-62.0" />
+      <point x="349.15178571428567" y="823.0" />
+      <point x="307.48040782907015" y="823.0" />
+      <point x="0.0" y="391.5" />
+    </edge>
+    <edge source="com.arkanoid.util.Timer" target="com.arkanoid.assets.abilities.AbilitiesEnum" relationship="DEPENDENCY">
+      <point x="33.75" y="-62.0" />
+      <point x="416.65178571428567" y="813.0" />
+      <point x="569.4804078290701" y="813.0" />
+      <point x="569.4804078290701" y="803.0" />
+      <point x="604.4804078290701" y="803.0" />
+      <point x="51.5" y="84.0" />
+    </edge>
+    <edge source="com.arkanoid.Game" target="com.arkanoid.entities.Racquet" relationship="TO_ONE">
+      <point x="-64.60714285714289" y="-216.5" />
+      <point x="415.43753898939485" y="2438.0" />
+      <point x="58.339285714285666" y="2438.0" />
+      <point x="58.339285714285666" y="1605.0" />
+      <point x="339.8137476606361" y="1605.0" />
+      <point x="-39.0" y="227.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.Racquet" target="com.arkanoid.Game" relationship="TO_ONE">
+      <point x="0.0" y="227.5" />
+      <point x="378.8137476606361" y="2408.0" />
+      <point x="380.54468184653774" y="2408.0" />
+      <point x="380.54468184653774" y="2468.0" />
+      <point x="458.5089675608235" y="2468.0" />
+      <point x="-21.535714285714278" y="-216.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.Ball" target="com.arkanoid.Game" relationship="DEPENDENCY">
+      <point x="75.60000000000002" y="150.5" />
+      <point x="334.4259318465379" y="2398.0" />
+      <point x="653.7634318465377" y="2398.0" />
+      <point x="653.7634318465377" y="2468.0" />
+      <point x="501.5803961322521" y="2468.0" />
+      <point x="21.535714285714334" y="-216.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.Ball" target="com.arkanoid.entities.Racquet" relationship="DEPENDENCY">
+      <point x="23.625" y="-150.5" />
+      <point x="282.45093184653786" y="2054.0" />
+      <point x="264.32593184653786" y="2054.0" />
+      <point x="264.32593184653786" y="1615.0" />
+      <point x="749.9804143273028" y="1615.0" />
+      <point x="749.9804143273028" y="1595.0" />
+      <point x="456.8137476606361" y="1595.0" />
+      <point x="78.0" y="227.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.BlueBrick" target="com.arkanoid.assets.abilities.AbilitiesEnum" relationship="DEPENDENCY">
+      <point x="0.0" y="-39.5" />
+      <point x="550.7170539613223" y="813.0" />
+      <point x="569.4804078290701" y="813.0" />
+      <point x="569.4804078290701" y="803.0" />
+      <point x="604.4804078290701" y="803.0" />
+      <point x="51.5" y="84.0" />
+    </edge>
+    <edge source="com.arkanoid.Game" target="com.arkanoid.entities.brick.Brick" relationship="CREATE">
+      <point x="-7.178571428571445" y="-216.5" />
+      <point x="472.8661104179663" y="2408.0" />
+      <point x="410.8137476606361" y="2408.0" />
+      <point x="410.8137476606361" y="2054.0" />
+      <point x="389.3137476606361" y="2054.0" />
+      <point x="389.3137476606361" y="2024.0" />
+      <point x="692.6170539613223" y="2024.0" />
+      <point x="-79.60000000000002" y="183.5" />
+    </edge>
+    <edge source="com.arkanoid.Main" target="com.arkanoid.config.Configurations" relationship="DEPENDENCY">
+      <point x="-91.4375" y="-238.0" />
+      <point x="393.85718184653774" y="2965.0" />
+      <point x="0.0" y="2965.0" />
+      <point x="0.0" y="823.0" />
+      <point x="307.48040782907015" y="823.0" />
+      <point x="0.0" y="391.5" />
+    </edge>
+    <edge source="com.arkanoid.Main" target="com.arkanoid.assets.sounds.Sounds" relationship="DEPENDENCY">
+      <point x="39.1875" y="-238.0" />
+      <point x="524.4821818465377" y="2955.0" />
+      <point x="957.3435420565604" y="2955.0" />
+      <point x="0.0" y="83.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.brick.BlueBrick" target="com.arkanoid.config.Configurations" relationship="DEPENDENCY">
+      <point x="-60.0" y="-39.5" />
+      <point x="490.71705396132234" y="2034.0" />
+      <point x="539.7170539613223" y="2034.0" />
+      <point x="539.7170539613223" y="823.0" />
+      <point x="307.48040782907015" y="823.0" />
+      <point x="0.0" y="391.5" />
+    </edge>
+    <edge source="com.arkanoid.entities.Ball" target="com.arkanoid.assets.sounds.SoundsEnum" relationship="DEPENDENCY">
+      <point x="-23.625" y="-150.5" />
+      <point x="235.20093184653786" y="2044.0" />
+      <point x="192.90178571428567" y="2044.0" />
+      <point x="0.0" y="106.0" />
+    </edge>
+    <edge source="com.arkanoid.Main" target="com.arkanoid.assets.sounds.SoundsEnum" relationship="DEPENDENCY">
+      <point x="-65.3125" y="-238.0" />
+      <point x="419.98218184653774" y="2955.0" />
+      <point x="11.0" y="2955.0" />
+      <point x="11.0" y="1097.0" />
+      <point x="192.90178571428567" y="1097.0" />
+      <point x="0.0" y="106.0" />
+    </edge>
+    <edge source="com.arkanoid.entities.Racquet" target="com.arkanoid.Main" relationship="DEPENDENCY">
+      <point x="-78.0" y="227.5" />
+      <point x="300.8137476606361" y="1595.0" />
+      <point x="22.0" y="1595.0" />
+      <point x="22.0" y="2945.0" />
+      <point x="61.4033063006861" y="2945.0" />
+      <point x="61.4033063006861" y="2975.0" />
+      <point x="446.1071818465378" y="2975.0" />
+      <point x="-39.1875" y="-238.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic" zoom="1.0" showDependencies="true" x="718.0000000000005" y="1698.0" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
