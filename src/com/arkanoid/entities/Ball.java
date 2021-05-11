@@ -81,13 +81,15 @@ public class Ball {
         Shape ballBounds = getBounds();
         Brick[][] bricks = game.getBricks();
 
-        int touchedBricks = 0;
+        boolean touchedBrick = false;
 
         for (Brick[] brickRow : bricks) {
-            touchedBricks += Arrays.stream(brickRow).parallel().filter(brick -> brick != null && brick.collision(ballBounds)).count();
+            touchedBrick = Arrays.stream(brickRow).parallel().anyMatch(brick -> brick != null && brick.collision(ballBounds));
+            if (touchedBrick)
+                break;
         }
 
-        return touchedBricks > 0;
+        return touchedBrick;
     }
 
     /** Pinta la bola en las posiciones caluladas */
